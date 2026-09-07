@@ -46,7 +46,6 @@ img{max-width:100%}
 /* ヒーロー */
 .hero{padding:64px 0 48px;text-align:center}
 .hero h1{font-size:30px;font-weight:700;letter-spacing:.1em;line-height:1.8;color:var(--ink2)}
-.hero h1 .mk{background:linear-gradient(transparent 62%,var(--marker) 62%)}
 .hero p.lead{color:var(--sub);margin-top:16px;font-size:14px;letter-spacing:.08em}
 
 /* セクション */
