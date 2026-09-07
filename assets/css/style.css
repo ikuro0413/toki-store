@@ -30,10 +30,11 @@ img{max-width:100%}
   padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;
   position:sticky;top:0;z-index:10;
 }
-.site-logo{font-size:22px;font-weight:700;letter-spacing:.08em;color:var(--ink)}
+.site-logo{font-size:22px;font-weight:700;letter-spacing:.08em;color:var(--ink);white-space:nowrap;flex-shrink:0}
 .site-logo .accent{color:var(--accent)}
-.site-logo .sub{display:block;font-size:10px;font-weight:400;letter-spacing:.3em;color:var(--sub)}
-.header-nav{display:flex;align-items:center;gap:22px;font-size:13px;font-weight:700}
+.site-logo .sub{display:block;font-size:10px;font-weight:400;letter-spacing:.3em;color:var(--sub);white-space:nowrap}
+.header-nav{display:flex;align-items:center;gap:22px;font-size:13px;font-weight:700;flex-wrap:nowrap}
+.nav-link{white-space:nowrap}
 .header-cta{
   border:1px solid var(--ink);border-radius:999px;background:var(--card);
   color:var(--ink);font-size:13px;font-weight:700;padding:9px 20px;letter-spacing:.06em;white-space:nowrap;
@@ -154,6 +155,19 @@ section.gray{
 /* reveal */
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
+
+/* ウィンドウを縮めたデスクトップ（ヘッダーの折り返し防止） */
+@media(max-width:900px){
+  .site-header{padding:16px 18px;gap:10px}
+  .header-nav{gap:15px;font-size:12.5px}
+  .header-cta{padding:8px 16px}
+}
+@media(max-width:790px){
+  .site-logo{font-size:20px}
+  .site-logo .sub{display:none}
+  .header-nav{gap:12px;font-size:12px}
+  .header-cta{font-size:12px;padding:8px 14px;letter-spacing:.02em}
+}
 
 /* モバイル */
 .br-sp{display:none}
