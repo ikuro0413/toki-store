@@ -349,12 +349,26 @@ html[data-theme="dark"] .theme-toggle:hover{border-color:var(--ink)}
 .post-list{display:grid;gap:14px}
 .post{
   background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);
-  padding:22px 26px;transition:box-shadow .15s;
+  display:grid;grid-template-columns:230px 1fr;align-items:stretch;
+  overflow:hidden;transition:box-shadow .15s;
 }
+.post__thumb{
+  display:block;width:100%;height:100%;min-height:158px;
+  object-fit:cover;border-right:1px solid var(--line);
+}
+.post__body{padding:20px 24px}
 .post:hover{box-shadow:0 4px 14px rgba(0,0,0,.08)}
 .post__date{font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--accent)}
 .post__ttl{font-size:16.5px;font-weight:700;line-height:1.8;color:var(--ink2);margin-top:6px}
 .post__excerpt{font-size:13px;color:var(--sub);line-height:1.95;margin-top:10px}
+
+/* 記事ページのヒーロー画像 */
+.article-hero{
+  display:block;width:100%;aspect-ratio:16/9;object-fit:cover;
+  border:1px solid var(--line);margin-top:26px;
+}
+html[data-theme="dark"] .article-hero,
+html[data-theme="dark"] .post__thumb{filter:brightness(.86)}
 html[data-theme="dark"] .post:hover{box-shadow:0 4px 14px rgba(0,0,0,.5)}
 html[data-theme="dark"] .cmp thead th{background:#2b2e35;color:var(--ink)}
 html[data-theme="dark"] .article > ol > li::before,
@@ -369,7 +383,9 @@ html[data-theme="dark"] .qa__q::before{color:#141519}
   .answer{padding:20px 18px 16px}
   .toc{padding:18px 18px}
   .article-nav{padding:0 18px}
-  .post{padding:18px 18px}
+  .post{grid-template-columns:1fr}
+  .post__thumb{aspect-ratio:16/9;height:auto;min-height:0;border-right:none;border-bottom:1px solid var(--line)}
+  .post__body{padding:18px 18px}
 }
 
 /* トップの「すべて見る」導線 */
@@ -379,3 +395,4 @@ html[data-theme="dark"] .qa__q::before{color:#141519}
   border:1px solid var(--ink);border-radius:999px;padding:11px 30px;
 }
 .sec-more a:hover{background:var(--ink);color:var(--on-ink);opacity:1}
+.prod__note{font-size:11px;color:var(--sub);line-height:1.8;margin-top:10px;letter-spacing:.02em}
