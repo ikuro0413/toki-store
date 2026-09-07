@@ -400,7 +400,33 @@ html[data-theme="dark"] .qa__q::before{color:#141519}
 /* 出典 */
 .refs{margin-top:34px;padding:20px 22px;background:var(--bg-gray);border:1px solid var(--line)}
 .refs__ttl{font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--sub);margin-bottom:12px}
-.refs ol{margin:0 0 0 1.3em}
+.refs ol{margin:0;padding-left:1.9em;list-style-position:outside}
 .refs li{font-size:12.5px;color:var(--sub);line-height:1.9;margin-bottom:8px}
 .refs li:last-child{margin-bottom:0}
 .refs a{color:var(--sub);text-decoration:underline;text-underline-offset:2px;word-break:break-all}
+
+@media(max-width:680px){
+  .refs{padding:18px 15px}
+  .refs ol{padding-left:1.7em}
+  .refs li{font-size:12px}
+}
+
+/* 記事末尾の製品導線 */
+.article-cta{
+  max-width:820px;margin:26px auto 0;padding:0 32px;
+}
+.article-cta__inner{
+  background:var(--cta-bg);border:1px solid var(--line);
+  padding:26px 28px;text-align:center;
+}
+.article-cta p{font-size:13.5px;color:var(--ink2);line-height:1.95;margin-bottom:16px}
+.article-cta a{
+  display:inline-block;background:var(--ink);color:var(--on-ink);
+  font-size:13.5px;font-weight:700;letter-spacing:.08em;
+  padding:12px 32px;border-radius:999px;
+}
+.article-cta a:hover{opacity:.8}
+@media(max-width:680px){
+  .article-cta{padding:0 18px}
+  .article-cta__inner{padding:22px 18px}
+}
