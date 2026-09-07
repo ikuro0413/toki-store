@@ -396,3 +396,11 @@ html[data-theme="dark"] .qa__q::before{color:#141519}
 }
 .sec-more a:hover{background:var(--ink);color:var(--on-ink);opacity:1}
 .prod__note{font-size:11px;color:var(--sub);line-height:1.8;margin-top:10px;letter-spacing:.02em}
+
+/* 出典 */
+.refs{margin-top:34px;padding:20px 22px;background:var(--bg-gray);border:1px solid var(--line)}
+.refs__ttl{font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--sub);margin-bottom:12px}
+.refs ol{margin:0 0 0 1.3em}
+.refs li{font-size:12.5px;color:var(--sub);line-height:1.9;margin-bottom:8px}
+.refs li:last-child{margin-bottom:0}
+.refs a{color:var(--sub);text-decoration:underline;text-underline-offset:2px;word-break:break-all}

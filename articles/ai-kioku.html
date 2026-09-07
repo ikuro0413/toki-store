@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIに任せると記憶に残らないのか — 54人のEEG研究でわかったことと、その限界｜TOKI STORE</title>
+<meta name="description" content="AIに文章を書かせると内容を覚えていないのか。54人を対象にしたMITの研究では、直後に自分の文章を引用できなかった人が83%にのぼりました。一方で20年近く続く同じ議論には再現失敗の例もあります。わかっていることと、まだわからないことを整理しました。">
+<link rel="canonical" href="https://store.detoxnews.jp/articles/ai-kioku.html">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C0Q65N4606"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C0Q65N4606');
+</script>
+<link rel="stylesheet" href="../assets/css/style.css?v=20260908c">
+<script id="theme-init">(function(){try{var t=localStorage.getItem('theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}
+function lbl(){var b=document.querySelector('.theme-toggle');if(b)b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'昼モード':'夜モード';}
+window.__themeToggle=function(){var d=document.documentElement,n=d.getAttribute('data-theme')==='dark'?'light':'dark';if(n==='dark')d.setAttribute('data-theme','dark');else d.removeAttribute('data-theme');try{localStorage.setItem('theme',n)}catch(e){}lbl();};
+document.addEventListener('DOMContentLoaded',lbl);})();</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"AIに任せると記憶に残らないのか — 54人のEEG研究でわかったことと、その限界","datePublished":"2026-09-08","dateModified":"2026-09-08","author":{"@type":"Organization","name":"TOKI"},"publisher":{"@type":"Organization","name":"TOKI STORE"},"mainEntityOfPage":"https://store.detoxnews.jp/articles/ai-kioku.html"}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="site-logo" href="../index.html">TOKI <span class="accent">STORE</span><span class="sub">SLEEP &amp; DIGITAL SOVEREIGNTY GOODS</span></a>
+  <nav class="header-nav">
+    <a class="nav-link" href="../index.html#products">製品</a>
+    <a class="nav-link nav-sub" href="../index.html#how">TOKIの作り方</a>
+    <a class="nav-link" href="../articles.html">コラム</a>
+    <button class="theme-toggle" onclick="__themeToggle()" aria-label="表示モード切り替え">夜モード</button>
+    <a class="header-cta" href="https://rentalloungeomiya.com/" target="_blank" rel="noopener">DetoxNews</a>
+  </nav>
+</header>
+
+<div class="breadcrumb"><a href="../index.html">TOKI STORE</a> ／ <a href="../articles.html">コラム</a></div>
+
+<article class="article">
+  <h1 class="article-title">AIに任せると記憶に残らないのか — 54人のEEG研究でわかったことと、その限界</h1>
+  <p class="article-meta">2026年9月8日公開 ／ 読了目安 6分</p>
+  <img class="article-hero" src="../assets/img/col-ai-kioku.jpg" alt="木の机の上で、開いたノートに万年筆で短い箇条書きを書いている手元。奥にノートパソコンの画面がぼけて写っている">
+
+  <div class="answer">
+    <span class="answer__ttl">結論</span>
+    <ul>
+      <li>MITの研究では、AIを使って書いた人の<strong>83%が、書き終えた直後に自分の文章を引用できませんでした</strong>。24時間後に自分の文章を再現できた割合も、AI群が約17%、AIなし群が約46%と差が出ています。</li>
+      <li>ただしこれは<strong>54人・短期間・エッセイ執筆という限定的な条件</strong>で得られた結果で、査読前の論文です。「AIを使うと頭が悪くなる」と一般化できる段階ではありません。</li>
+      <li>同じ「外部に預けると覚えない」という議論は検索エンジンの時代にもあり、そちらの代表的な研究は<strong>再現に失敗しています</strong>。20年近く決着していないテーマです。</li>
+    </ul>
+  </div>
+
+  <nav class="toc">
+    <p class="toc__ttl">目次</p>
+    <ol>
+      <li><a href="#why">なぜ「AIを使うと覚えられない」と言われるのか</a></li>
+      <li><a href="#data">AIで書いた文章は、どれくらい記憶に残っていなかったのか</a></li>
+      <li><a href="#limit">これは「AIで頭が悪くなる」という意味なのか</a></li>
+      <li><a href="#google">検索エンジンの時代にも同じ議論があった</a></li>
+      <li><a href="#howto">記憶に残したいときに何を変えればいいか</a></li>
+      <li><a href="#qa">よくある質問</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="why">なぜ「AIを使うと覚えられない」と言われるのか</h2>
+  <p class="summary">人間には、外部に保存できると分かっている情報を自分で覚えなくなる性質があります。これを認知オフロードと呼びます。AIはこの外部保存先として、過去のどの道具よりも広い範囲を引き受けます。</p>
+
+  <p>電話番号を暗記しなくなったのはスマートフォンに保存されているからで、道順を覚えなくなったのは地図アプリがあるからです。人は「後で取り出せる」と分かっているものを、自分の頭に入れておく優先度を下げます。</p>
+
+  <p>AIが引き受ける範囲は、この延長線上にあります。これまで外部化できたのは事実や手順でしたが、AIは<strong>文章を組み立てる作業そのもの</strong>を引き受けます。考えて言葉にするという工程を丸ごと外に出したとき、何が起きるのか。それを実際に測った研究が出てきました。</p>
+
+  <h2 id="data">AIで書いた文章は、どれくらい記憶に残っていなかったのか</h2>
+  <p class="summary">MITメディアラボの研究では54人を3群に分け、エッセイを書かせながら脳波を測りました。AIを使った群は、書き終えた直後に自分の文章を引用できない人が83%にのぼりました。</p>
+
+  <p>参加者は「AIを使う群」「検索エンジンを使う群」「何も使わない群」に分けられ、複数回にわたってエッセイを書きました。執筆中はEEG（脳波計）で脳の活動を記録しています。</p>
+
+  <div class="cmp-scroll">
+  <table class="cmp">
+    <thead>
+      <tr><th>測定項目</th><th>AIを使った群</th><th>何も使わない群</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>直後に自分の文章を引用できなかった人</th>
+        <td>83%</td>
+        <td>大幅に少ない（対照群）</td>
+      </tr>
+      <tr>
+        <th>24時間後に自分の文章を再現できた割合</th>
+        <td>約17%</td>
+        <td>約46%</td>
+      </tr>
+      <tr>
+        <th>脳の結合性（EEG）</th>
+        <td>最も弱い</td>
+        <td>最も強く広範囲</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>検索エンジンを使った群は、この2群の中間に位置しました。<strong>外部の助けが強いほど、脳の活動も記憶への定着も下がるという順番</strong>になっています。</p>
+
+  <p>さらに、4回目の課題でAI群にAIなしで書かせたところ、最初からAIを使わなかった群より神経の結合が弱く、78%が自分の文章を引用できませんでした。研究チームはこれを「認知的負債（cognitive debt）」と呼んでいます。楽をした分が後から効いてくる、という含意です。</p>
+
+  <h2 id="limit">これは「AIで頭が悪くなる」という意味なのか</h2>
+  <p class="summary">言えません。54人・短期間・エッセイ執筆という限られた条件の結果で、査読を経ていない論文です。数字の大きさに対して、一般化できる範囲はかなり狭いと考えるべきです。</p>
+
+  <p>限界を具体的に挙げると、次のようになります。</p>
+
+  <ul>
+    <li><strong>人数が少ない</strong>：54人を3群に分けているので、1群あたり20人に届きません。</li>
+    <li><strong>課題が限定的</strong>：測ったのはエッセイ執筆であり、調べもの・計算・翻訳など他の使い方には当てはまるとは限りません。</li>
+    <li><strong>期間が短い</strong>：数回のセッションで観察された差であって、年単位で何が起きるかは分かりません。</li>
+    <li><strong>査読前</strong>：プレプリントとして公開された段階の研究です。</li>
+    <li><strong>「覚えていない」と「能力が落ちた」は別</strong>：自分の文章を引用できないことは、思考力そのものの低下を意味しません。</li>
+  </ul>
+
+  <p>言えるのは「<strong>AIに書かせた文章は、自分で書いた文章ほど頭に残らない</strong>」という限定された事実までです。ここを超えて語られている話は、この研究の射程の外にあります。</p>
+
+  <h2 id="google">検索エンジンの時代にも同じ議論があった</h2>
+  <p class="summary">2011年の研究は「検索できると分かっていると、内容より在りかを覚える」と報告しました。しかしこの研究は2018年の大規模な再現プロジェクトで再現に失敗しています。</p>
+
+  <p>Science誌に載った2011年の研究は、後で調べられると分かっている情報について、人は内容そのものより「どこにあるか」を優先して記憶すると報告しました。この考え方は「Google効果」として広く知られるようになります。</p>
+
+  <p>ところが2018年、社会科学の再現性を検証する大規模プロジェクトでこの研究が取り上げられ、<strong>再現に失敗しました</strong>。原著者は手続きの違い（実験で使う単語の扱い）を挙げて反論しており、決着はついていません。</p>
+
+  <p>つまり「外部に預けると覚えなくなる」という主張は、20年近く議論されながら、まだ確定していないということです。今回のAIの研究も、この長い列の最新の1本として見るのが妥当です。</p>
+
+  <h2 id="howto">記憶に残したいときに何を変えればいいか</h2>
+  <p class="summary">確定していない話でも、実務上の対処は単純です。覚えておきたいものだけ、自分の手を通す工程を残します。</p>
+
+  <ul>
+    <li><strong>覚える必要があるものと、ないものを分ける</strong>：後で調べれば済むことまで暗記する必要はありません。研究が示しているのは「任せたものは残らない」であって、「全部自分でやれ」ではありません。</li>
+    <li><strong>出力の前に一度、自分の言葉にする</strong>：AIに書かせる前に要点を短く書き出しておくと、その部分は自分の思考として通過します。</li>
+    <li><strong>読み返しではなく思い出す</strong>：記憶に残すうえで効くのは、読み直すことより、見ずに思い出そうとすることです。</li>
+    <li><strong>紙を1枚挟む</strong>：画面の中で完結させないというだけで、工程が1つ増えます。増えた工程の分は自分の頭を通ります。</li>
+  </ul>
+
+  <h2 id="qa">よくある質問</h2>
+
+  <div class="qa">
+    <div class="qa__item">
+      <p class="qa__q">AIを使うのをやめたほうがいいということですか？</p>
+      <p class="qa__a">そうは言えません。この研究が示したのは「AIに書かせた文章は自分の記憶に残りにくい」ということだけで、AIの利用全般を否定する結果ではありません。覚えておく必要がない作業なら、任せて問題ありません。</p>
+    </div>
+    <div class="qa__item">
+      <p class="qa__q">検索エンジンなら大丈夫なのですか？</p>
+      <p class="qa__a">研究では検索群がAI群と何も使わない群の中間でした。ただし差の大小を比べただけで、検索なら安全という結論ではありません。関与の度合いが下がるほど記憶に残りにくい、という傾向として読むのが妥当です。</p>
+    </div>
+    <div class="qa__item">
+      <p class="qa__q">「認知的負債」は後から返済できるのですか？</p>
+      <p class="qa__a">研究はそこまで検証していません。4回目のセッションでAI群がAIなしで書いたとき成績が振るわなかった、という短期の観察があるだけです。回復するのかしないのかは、この研究では分かりません。</p>
+    </div>
+    <div class="qa__item">
+      <p class="qa__q">数字が大きいので信じてよさそうに見えますが。</p>
+      <p class="qa__a">83%や17%といった数字は目を引きますが、母数は1群20人未満です。少人数の研究では極端な数字が出やすく、追試で小さくなることがよくあります。数字の大きさと確からしさは別物として扱ってください。</p>
+    </div>
+  </div>
+
+  <div class="refs">
+    <p class="refs__ttl">出典</p>
+    <ol>
+      <li>Kosmyna, N. et al. (2025) "Your Brain on ChatGPT: Accumulation of Cognitive Debt when Using an AI Assistant for Essay Writing Task", MIT Media Lab, <a href="https://arxiv.org/abs/2506.08872" target="_blank" rel="noopener">arXiv:2506.08872</a>（プレプリント）</li>
+      <li>Sparrow, B., Liu, J., &amp; Wegner, D. M. (2011) "Google Effects on Memory: Cognitive Consequences of Having Information at Our Fingertips", <a href="https://www.science.org/doi/abs/10.1126/science.1207745" target="_blank" rel="noopener">Science 333(6043)</a></li>
+      <li>Camerer, C. F. et al. (2018) Social Sciences Replication Project — 上記Sparrow et al. の再現結果について（<a href="https://forrt.org/flora-replication-atlas/doi/10.1126/science.1207745/" target="_blank" rel="noopener">FLoRA Replication Atlas</a>）</li>
+    </ol>
+  </div>
+
+  <p class="article-note">本コラムは公開されている研究の紹介と整理であり、医学的・心理学的な診断や助言ではありません。<br>最終更新: 2026年9月8日</p>
+</article>
+
+<div class="article-nav">
+  <a href="desk-shuchu-kankyo.html"><span>次に読む</span>机の上にスマホを置くとなぜ集中できないのか — 視界から外す3段階</a>
+  <a href="../articles.html"><span>一覧</span>コラムをすべて見る</a>
+  <a href="../index.html#products"><span>TOKI STORE</span>製品一覧を見る</a>
+</div>
+
+<footer class="site-footer">
+  <div class="disclosure">
+    <span>© TOKI</span>
+    <a href="../index.html">ストアトップへ戻る</a>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js?v=20260908c"></script>
+</body>
+</html>
