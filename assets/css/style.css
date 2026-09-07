@@ -228,15 +228,46 @@ html[data-theme="dark"] .theme-toggle:hover{border-color:var(--ink)}
 .article ul,.article ol{margin:0 0 20px 1.4em}
 .article li{margin-bottom:9px;line-height:2;font-size:14.5px}
 .article strong{font-weight:700;background:linear-gradient(transparent 62%,var(--marker) 62%)}
-.point{
-  background:var(--bg-gray);border:1px solid var(--line);border-radius:6px;
-  padding:20px 22px;margin:26px 0 30px;
+/* 結論ボックス（冒頭で答えを出す） */
+.answer{
+  border:2px solid var(--ink2);border-radius:4px;
+  padding:22px 24px 18px;margin:28px 0 30px;background:var(--card);
 }
-.point .point__ttl{
+.answer__ttl{
   display:inline-block;font-size:11px;font-weight:700;letter-spacing:.2em;
-  color:var(--accent);margin-bottom:8px;
+  color:var(--on-ink);background:var(--ink2);padding:4px 12px;margin-bottom:14px;
 }
-.point p{margin:0;font-size:14px;line-height:2}
+.answer ul{margin:0 0 0 1.3em}
+.answer li{margin-bottom:10px;font-size:14.5px;line-height:1.95}
+.answer li:last-child{margin-bottom:0}
+
+/* 目次 */
+.toc{background:var(--bg-gray);border:1px solid var(--line);padding:20px 24px;margin:0 0 34px}
+.toc__ttl{font-size:12px;font-weight:700;letter-spacing:.18em;color:var(--sub);margin-bottom:12px}
+.toc ol{margin:0 0 0 1.4em}
+.toc li{margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.toc a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+
+/* 見出し直後の要約 */
+.summary{
+  font-size:14px;line-height:2;color:var(--ink2);
+  border-left:2px solid var(--line);padding-left:14px;margin-bottom:20px;
+}
+
+/* 比較表 */
+.cmp{width:100%;border-collapse:collapse;font-size:13.5px;margin:22px 0 26px}
+.cmp th,.cmp td{border:1px solid var(--line);padding:11px 13px;text-align:left;vertical-align:top;line-height:1.85}
+.cmp thead th{background:var(--bg-gray);font-weight:700;color:var(--ink2);white-space:nowrap}
+.cmp tbody th{background:var(--bg-gray);font-weight:700;color:var(--ink2);width:30%}
+.cmp-scroll{overflow-x:auto}
+
+/* Q&A */
+.qa{border-top:1px solid var(--line);margin-top:14px}
+.qa__item{border-bottom:1px solid var(--line);padding:18px 0}
+.qa__q{font-size:14.5px;font-weight:700;color:var(--ink2);line-height:1.85;padding-left:26px;position:relative}
+.qa__q::before{content:"Q";position:absolute;left:0;top:0;color:var(--accent);font-weight:700}
+.qa__a{font-size:14px;color:var(--sub);line-height:2;margin-top:8px;padding-left:26px;position:relative}
+.qa__a::before{content:"A";position:absolute;left:0;top:0;color:var(--sub);font-weight:700}
 .article-note{font-size:12.5px;color:var(--sub);line-height:1.95;margin-top:34px;padding-top:18px;border-top:1px solid var(--line)}
 .article-nav{max-width:720px;margin:34px auto 0;padding:0 24px;display:grid;gap:12px}
 .article-nav a{
