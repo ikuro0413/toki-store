@@ -101,7 +101,6 @@ section.gray{
 .btn-amazon:hover{opacity:.85}
 .btn-ghost{border:1px solid var(--ink);color:var(--ink);background:var(--card)}
 .btn-ghost:hover{background:var(--ink);color:var(--on-ink);opacity:1}
-.pr-note{margin-top:10px;font-size:11px;color:var(--sub);letter-spacing:.04em}
 
 /* TOKIの作り方（triad・グレー斜めセクション内） */
 .triad{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
