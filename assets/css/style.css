@@ -430,3 +430,8 @@ html[data-theme="dark"] .qa__q::before{color:#141519}
   .article-cta{padding:0 18px}
   .article-cta__inner{padding:22px 18px}
 }
+
+/* トップのコラム表示数: デスクトップ4件 / モバイル2件 */
+@media(max-width:680px){
+  #columns .post-list .post:nth-child(n+3){display:none}
+}
