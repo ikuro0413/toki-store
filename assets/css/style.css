@@ -371,3 +371,11 @@ html[data-theme="dark"] .qa__q::before{color:#141519}
   .article-nav{padding:0 18px}
   .post{padding:18px 18px}
 }
+
+/* トップの「すべて見る」導線 */
+.sec-more{margin-top:22px;text-align:center}
+.sec-more a{
+  display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--ink2);
+  border:1px solid var(--ink);border-radius:999px;padding:11px 30px;
+}
+.sec-more a:hover{background:var(--ink);color:var(--on-ink);opacity:1}
