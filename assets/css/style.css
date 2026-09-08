@@ -435,3 +435,45 @@ html[data-theme="dark"] .qa__q::before{color:#141519}
 @media(max-width:680px){
   #columns .post-list .post:nth-child(n+3){display:none}
 }
+
+/* ============ 製品リクエストフォーム ============ */
+.form-wrap{
+  max-width:720px;margin:0 auto;padding:34px 44px 30px;
+  background:var(--card);border:1px solid var(--line);border-top:3px solid var(--accent);
+}
+.form-lead{font-size:14.5px;line-height:2.1;color:var(--ink2);margin:20px 0 30px;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.field{margin-bottom:28px}
+.field label{display:block;font-size:14.5px;font-weight:700;color:var(--ink2);letter-spacing:.04em}
+.req{
+  display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.1em;
+  background:var(--accent);color:#fff;padding:2px 8px;border-radius:3px;margin-left:8px;vertical-align:2px;
+}
+.hint{font-size:12.5px;color:var(--sub);line-height:1.9;margin:6px 0 10px}
+.field input[type=text],.field input[type=email],.field textarea,.field select{
+  width:100%;font-family:inherit;font-size:14.5px;line-height:1.9;color:var(--ink);
+  background:var(--bg);border:1px solid var(--line);border-radius:3px;padding:12px 14px;
+}
+.field textarea{resize:vertical}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--accent)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-note{font-size:12px;color:var(--sub);line-height:1.9;margin-bottom:20px}
+.form-btn{
+  display:block;width:100%;font-family:inherit;font-size:15px;font-weight:700;letter-spacing:.1em;
+  background:var(--ink);color:var(--on-ink);border:none;border-radius:999px;
+  padding:16px 20px;cursor:pointer;
+}
+.form-btn:hover{opacity:.85}
+.form-btn:disabled{opacity:.5;cursor:default}
+.form-error{margin-top:14px;font-size:13px;color:#c0392b;text-align:center}
+.form-done{
+  max-width:720px;margin:0 auto;padding:40px 44px;text-align:center;
+  background:var(--cta-bg);border:1px solid var(--line);
+}
+.form-done__ttl{font-size:18px;font-weight:700;color:var(--ink2);letter-spacing:.08em;margin-bottom:12px}
+.form-done p{font-size:14px;color:var(--ink2);line-height:2}
+.form-done__nav{margin-top:20px}
+.form-done__nav a{font-weight:700;color:var(--ink2);border-bottom:1px solid var(--accent)}
+@media(max-width:680px){
+  .form-wrap{padding:26px 20px 24px;border-left:none;border-right:none}
+  .form-done{padding:30px 20px}
+}
