@@ -477,3 +477,38 @@ html[data-theme="dark"] .qa__q::before{color:#141519}
   .form-wrap{padding:26px 20px 24px;border-left:none;border-right:none}
   .form-done{padding:30px 20px}
 }
+
+/* 商品個別ページ（TOKI DIRECT） */
+.pdp{max-width:860px;margin:26px auto 0;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
+.pdp__media{border:1px solid var(--line);background:var(--bg-gray);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center}
+.pdp__media img{display:block;width:100%;height:100%;object-fit:cover}
+.pdp__nophoto{text-align:center;padding:24px;color:var(--sub);font-size:12.5px;line-height:1.95}
+.pdp__nophoto-ttl{font-size:11px;font-weight:700;letter-spacing:.24em;color:var(--accent);margin-bottom:10px}
+.pdp__name{font-size:24px;font-weight:700;line-height:1.7;letter-spacing:.06em;color:var(--ink2);margin-top:4px}
+.pdp__name small{display:block;font-size:12px;color:var(--sub);font-weight:400;letter-spacing:.16em;margin-top:4px}
+.pdp__catch{margin-top:14px;font-size:15px;font-weight:700;color:var(--ink2);letter-spacing:.08em;background:linear-gradient(transparent 62%,var(--marker) 62%);display:inline-block}
+.pdp__price{margin-top:20px;font-size:22px;font-weight:700;color:var(--ink2);letter-spacing:.04em}
+.pdp__price small{font-size:12px;color:var(--sub);font-weight:400;margin-left:10px;letter-spacing:.06em}
+.pdp__state{margin-top:20px;border:1px solid var(--line);background:var(--bg-gray);padding:16px 18px;font-size:12.5px;color:var(--sub);line-height:1.95}
+.pdp__state-ttl{font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--ink2);margin-bottom:6px}
+.pdp__buy{margin-top:22px}
+.pdp__qty{display:block;font-size:12.5px;color:var(--sub);letter-spacing:.06em;margin-bottom:12px}
+.pdp__qty select{display:block;margin-top:6px;width:110px;padding:10px 12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:14px;font-family:inherit}
+.pdp__buy .form-btn{width:100%}
+.pdp__buy-note{margin-top:12px;font-size:11.5px;color:var(--sub);line-height:1.85}
+@media(max-width:680px){
+  .pdp{grid-template-columns:1fr;gap:22px;padding:0 20px}
+  .pdp__name{font-size:21px}
+  .pdp__price{font-size:20px}
+}
+
+/* 決済後のページ */
+.result{max-width:640px;margin:70px auto 0;padding:0 24px;text-align:center}
+.result__ttl{font-size:22px;font-weight:700;letter-spacing:.08em;color:var(--ink2);line-height:1.7}
+.result__order{margin-top:18px;display:inline-block;border:1px solid var(--line);background:var(--bg-gray);padding:10px 22px;font-size:13px;letter-spacing:.1em;color:var(--ink2)}
+.result__body{margin-top:22px;font-size:14px;color:var(--ink2);line-height:2.1;text-align:left}
+.result__nav{margin-top:30px}
+.result__nav a{font-weight:700;color:var(--ink2);border-bottom:1px solid var(--accent);margin:0 10px}
+
+/* 製品カードの副ボタン（関連記事へ） */
+.prod__read{margin-top:10px;display:block;text-align:center}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>ご注文ありがとうございます｜TOKI STORE</title>
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C0Q65N4606"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C0Q65N4606');
+</script>
+<link rel="stylesheet" href="../assets/css/style.css?v=20260912a">
+<script id="theme-init">(function(){try{var t=localStorage.getItem('theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="site-logo" href="../index.html">TOKI <span class="accent">STORE</span><span class="sub">SLEEP &amp; DIGITAL SOVEREIGNTY GOODS</span></a>
+</header>
+
+<div class="result">
+  <p class="result__ttl">ご注文を受け付けました</p>
+  <p class="result__order" id="orderNo" hidden></p>
+
+  <div class="result__body">
+    <p>決済の確定はTOKI側で確認してから行います。<strong>確認が取れ次第、ご登録のメールアドレスに確定のご案内を送ります。</strong>このページが表示されただけでは確定ではありません。</p>
+    <p>発送は注文から3営業日以内です。発送時に追跡番号をお知らせします。</p>
+    <p>30分経ってもメールが届かない場合は、迷惑メールフォルダをご確認のうえ <a href="mailto:info@detoxnews.jp">info@detoxnews.jp</a> までご連絡ください。</p>
+  </div>
+
+  <p class="result__nav">
+    <a href="../index.html">製品一覧へ</a>
+    <a href="../articles.html">コラムを読む</a>
+  </p>
+</div>
+
+<footer class="site-footer">
+  <div class="disclosure"><span>© TOKI</span></div>
+</footer>
+
+<script>
+(function(){
+  var m = location.search.match(/[?&]order=([^&]+)/);
+  if (!m) return;
+  var id = decodeURIComponent(m[1]).replace(/[^A-Za-z0-9\-]/g, '').slice(0, 24);
+  if (!id) return;
+
+  var el = document.getElementById('orderNo');
+  el.textContent = '注文番号 ' + id;
+  el.hidden = false;
+
+  // transaction_id を入れておくと、再読み込みされてもGA4側で重複を除去できる
+  if (typeof gtag === 'function') {
+    gtag('event', 'purchase', { transaction_id: id, currency: 'JPY' });
+  }
+})();
+</script>
+</body>
+</html>

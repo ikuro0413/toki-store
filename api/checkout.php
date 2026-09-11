@@ -1,0 +1,93 @@
+<?php
+/**
+ * 購入ボタンの受け口。Stripe Checkout Session を作って決済画面へ送る。
+ *
+ * 受け取るのは sku と qty だけ。金額は商品DBから引く（フロントの数字は信用しない）。
+ * 成功時は 303 で Stripe のホストする決済画面へリダイレクトする。
+ */
+
+declare(strict_types=1);
+require __DIR__ . '/_lib.php';
+
+if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
+    http_response_code(405);
+    header('Allow: POST');
+    exit('POST only');
+}
+
+$conf = toki_config();
+$base = rtrim($conf['site_base_url'], '/');
+
+$slug = isset($_POST['sku']) ? preg_replace('/[^a-z0-9\-]/', '', strtolower((string)$_POST['sku'])) : '';
+$qty  = isset($_POST['qty']) ? (int)$_POST['qty'] : 1;
+
+if ($slug === '') toki_fail(400, 'sku_missing', 'skuが空');
+
+$p = toki_product($slug);
+if (!$p) toki_fail(404, 'product_not_found', 'sku=' . $slug);
+
+if (($p['status'] ?? 'draft') !== 'active') {
+    toki_fail(409, 'not_on_sale', $slug . ' は status=' . ($p['status'] ?? 'draft'));
+}
+
+$max = (int)($p['max_qty_per_order'] ?? 1);
+if ($qty < 1) $qty = 1;
+if ($qty > $max) toki_fail(400, 'qty_too_large', 'max=' . $max);
+
+$stock = (int)($p['stock'] ?? 0);
+if ($stock < $qty) toki_fail(409, 'out_of_stock', 'stock=' . $stock);
+
+$orderId = toki_next_order_id();
+
+$params = [
+    'mode'   => 'payment',
+    'locale' => 'ja',
+
+    'line_items' => [[
+        'quantity'   => $qty,
+        'price_data' => [
+            'currency'     => 'jpy',
+            'unit_amount'  => (int)$p['price_jpy'],   // 税込・送料込の一本価格
+            'product_data' => [
+                'name'        => (string)$p['name'],
+                'description' => (string)($p['short_description'] ?? ''),
+            ],
+        ],
+    ]],
+
+    'shipping_address_collection' => ['allowed_countries' => ['JP']],
+    'phone_number_collection'     => ['enabled' => 'true'],
+    'customer_creation'           => 'always',
+
+    'success_url' => $base . '/order/complete.html?order=' . rawurlencode($orderId),
+    'cancel_url'  => $base . '/order/cancel.html',
+
+    'metadata' => [
+        'order_id'          => $orderId,
+        'sku'               => (string)$p['sku'],
+        'slug'              => $slug,
+        'supplier'          => (string)($p['supplier'] ?? ''),
+        'source_product_id' => (string)($p['source_product_id'] ?? ''),
+    ],
+    'payment_intent_data' => [
+        'metadata'    => ['order_id' => $orderId, 'sku' => (string)$p['sku']],
+        'description' => 'TOKI STORE ' . $orderId,
+    ],
+];
+
+// 画像は絶対URLのときだけ渡す（Stripe側が取得しに来るため）
+if (!empty($p['image_url']) && strpos((string)$p['image_url'], 'https://') === 0) {
+    $params['line_items'][0]['price_data']['product_data']['images'] = [(string)$p['image_url']];
+}
+
+// 同じ注文番号で二重にSessionを作らない
+$session = toki_stripe('POST', 'checkout/sessions', $params, [
+    'Idempotency-Key' => 'checkout-' . $orderId,
+]);
+
+if (empty($session['url'])) toki_fail(502, 'session_no_url', '決済画面のURLが返らなかった');
+
+toki_log('ok', 'session作成 ' . $orderId . ' ' . $slug . ' x' . $qty . ' ' . ($session['id'] ?? ''));
+
+header('Location: ' . $session['url'], true, 303);
+exit;
