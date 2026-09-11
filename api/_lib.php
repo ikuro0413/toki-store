@@ -163,6 +163,41 @@ function toki_event_seen(string $eventId): bool {
     return false;
 }
 
+/**
+ * 素朴な回数制限。同じIPからの連打でStripeのSessionと注文番号が無駄に増えるのを防ぐ。
+ * 窓を過ぎた記録は捨てて数え直す。数えられないときは通す（決済を止めない）。
+ */
+function toki_rate_limit(string $key, int $max, int $windowSec): bool {
+    $fp = @fopen(toki_private_dir() . '/ratelimit.json', 'c+');
+    if (!$fp) return true;
+    flock($fp, LOCK_EX);
+
+    $state = json_decode((string)stream_get_contents($fp), true);
+    if (!is_array($state)) $state = [];
+    $now = time();
+
+    foreach ($state as $k => $v) {
+        if (!is_array($v) || ($v['start'] ?? 0) + $windowSec < $now) unset($state[$k]);
+    }
+    if (!isset($state[$key])) $state[$key] = ['start' => $now, 'count' => 0];
+    $state[$key]['count']++;
+    $ok = $state[$key]['count'] <= $max;
+
+    ftruncate($fp, 0);
+    rewind($fp);
+    fwrite($fp, json_encode($state));
+    fflush($fp);
+    flock($fp, LOCK_UN);
+    fclose($fp);
+
+    return $ok;
+}
+
+function toki_client_ip(): string {
+    $ip = preg_replace('/[^0-9a-fA-F:.]/', '', (string)($_SERVER['REMOTE_ADDR'] ?? ''));
+    return $ip !== '' ? $ip : 'unknown';
+}
+
 function toki_log(string $kind, string $message): void {
     $line = sprintf("%s\t%s\t%s\n", date('c'), $kind, $message);
     @file_put_contents(toki_private_dir() . '/store.log', $line, FILE_APPEND | LOCK_EX);

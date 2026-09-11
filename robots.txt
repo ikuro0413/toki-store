@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /order/
 
 Sitemap: https://store.detoxnews.jp/sitemap.xml

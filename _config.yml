@@ -1,0 +1,6 @@
+# GitHub Pages（Jekyll）向けの設定。
+# 決済のサーバー側コードは Pages では動かないのに、ソースだけが公開される状態になる。
+# Pages の出力から外して、Xserver へのFTPデプロイ側だけに置く。
+exclude:
+  - api
+  - _config.yml

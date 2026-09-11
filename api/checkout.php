@@ -18,6 +18,11 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
 $conf = toki_config();
 $base = rtrim($conf['site_base_url'], '/');
 
+// 同一IPから10分に10回まで。連打でSessionと注文番号が増え続けるのを止める
+if (!toki_rate_limit('checkout:' . toki_client_ip(), 10, 600)) {
+    toki_fail(429, 'too_many_requests', toki_client_ip());
+}
+
 $slug = isset($_POST['sku']) ? preg_replace('/[^a-z0-9\-]/', '', strtolower((string)$_POST['sku'])) : '';
 $qty  = isset($_POST['qty']) ? (int)$_POST['qty'] : 1;
 

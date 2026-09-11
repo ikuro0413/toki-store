@@ -102,12 +102,28 @@ if ($type === 'checkout.session.completed') {
 }
 
 if ($type === 'charge.refunded') {
-    $ch = $event['data']['object'] ?? [];
+    $ch      = $event['data']['object'] ?? [];
+    $piId    = (string)($ch['payment_intent'] ?? '');
+    $orderId = (string)($ch['metadata']['order_id'] ?? '');
+
+    // ChargeのmetadataにはPaymentIntentのmetadataが載らないことがある。
+    // 空ならPaymentIntentを取りに行って注文番号を解決する。
+    if ($orderId === '' && $piId !== '') {
+        $pi = toki_stripe('GET', 'payment_intents/' . $piId);
+        $orderId = (string)($pi['metadata']['order_id'] ?? '');
+    }
+
+    if ($orderId === '') {
+        toki_log('ERROR', '返金の注文番号を解決できない charge=' . (string)($ch['id'] ?? '') . ' pi=' . $piId);
+        http_response_code(200);
+        exit('no order_id');
+    }
+
     toki_record_order([
-        'order_id'              => (string)($ch['metadata']['order_id'] ?? ''),
+        'order_id'              => $orderId,
         'created_at'            => date('c'),
         'payment_status'        => 'refunded',
-        'stripe_payment_intent' => (string)($ch['payment_intent'] ?? ''),
+        'stripe_payment_intent' => $piId,
         'price_jpy'             => (int)($ch['amount_refunded'] ?? 0),
     ]);
     http_response_code(200);

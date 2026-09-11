@@ -1,0 +1,38 @@
+# api/ 以下のPHPを構文チェックする。
+# 手元の環境にPHPが無く、これまで本番へ上げるまで構文エラーに気づけなかったので
+# push のたびにここで見る。Xserverは PHP 8系なので 8.2 で通す。
+
+name: PHP syntax check
+
+on:
+  push:
+    paths:
+      - 'api/**.php'
+      - '.github/workflows/php-lint.yml'
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: php -l
+        run: |
+          set -e
+          found=0
+          for f in $(find api -name '*.php' | sort); do
+            echo "--- $f"
+            php -l "$f"
+            found=$((found+1))
+          done
+          if [ "$found" -eq 0 ]; then
+            echo "PHPファイルが見つからない"
+            exit 1
+          fi
+          echo "$found ファイルの構文チェックを通過"
