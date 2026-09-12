@@ -34,12 +34,16 @@ function toki_config(): array {
     return $conf;
 }
 
-/** 商品DB。価格の唯一の出所。フロントから金額を受け取らないための要 */
+/** 商品DB。販売価格はサーバー側の prices.php を優先し、フロントの金額は受け取らない */
 function toki_products(): array {
     $path = toki_private_dir() . '/products.json';
     if (!is_readable($path)) toki_fail(500, 'products_missing', '商品DBが読めない: ' . $path);
     $json = json_decode((string)file_get_contents($path), true);
     if (!is_array($json)) toki_fail(500, 'products_broken', '商品DBが壊れている');
+    $prices = require __DIR__ . '/prices.php';
+    foreach ($prices as $slug => $price) {
+        if (isset($json[$slug])) $json[$slug]['price_jpy'] = $price;
+    }
     return $json;
 }
 
