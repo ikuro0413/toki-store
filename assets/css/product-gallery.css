@@ -1,0 +1,12 @@
+.product-gallery{min-width:0;align-self:start}
+.product-gallery__stage{position:relative;background:#fff;border:1px solid var(--line);aspect-ratio:1}
+.product-gallery__stage>img{display:block;width:100%;height:100%;object-fit:contain}
+.product-gallery__arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border:1px solid #ddd;border-radius:50%;background:rgba(255,255,255,.92);color:#222;font-size:26px;cursor:pointer}
+.product-gallery__arrow--prev{left:12px}.product-gallery__arrow--next{right:12px}
+.product-gallery__bar{display:flex;align-items:center;justify-content:space-between;margin:14px 0;color:var(--sub);font-size:12px}
+.product-gallery__thumbs{display:flex;gap:10px}
+.product-gallery__thumbs a{display:block;width:76px;aspect-ratio:1;border:2px solid var(--line);border-radius:4px;overflow:hidden;background:#fff}
+.product-gallery__thumbs a[aria-current]{border-color:var(--accent)}
+.product-gallery__thumbs img{display:block;width:100%;height:100%;object-fit:contain}
+.product-gallery a:focus-visible,.product-gallery button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.product-gallery__note{font-size:11px;color:var(--sub);line-height:1.7;margin-top:12px}

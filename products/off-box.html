@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
   }
 }
 </script>
+<link rel="stylesheet" href="../assets/css/product-gallery.css?v=20260913">
 </head>
 <body>
 
@@ -66,10 +67,20 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
 
 <div class="pdp">
 
-  <div class="pdp__media" style="aspect-ratio:1">
-    <img src="../assets/img/off-box-centered.png" alt="OFF BOXの白い本体と透明カバー（提供写真をもとにした生成画像）" width="1254" height="1254" fetchpriority="high" style="object-fit:contain">
-  </div>
-
+  <section class="product-gallery" data-gallery aria-label="OFF BOXの商品画像">
+    <div class="product-gallery__stage">
+      <img data-gallery-image src="../assets/img/off-box-centered.png" alt="OFF BOX・斜めから見た全体" width="1254" height="1254" fetchpriority="high">
+      <button hidden type="button" class="product-gallery__arrow product-gallery__arrow--prev" data-gallery-step="-1" aria-label="前の画像">‹</button>
+      <button hidden type="button" class="product-gallery__arrow product-gallery__arrow--next" data-gallery-step="1" aria-label="次の画像">›</button>
+    </div>
+    <div class="product-gallery__bar"><span>商品画像</span><span data-gallery-count aria-live="polite" aria-atomic="true">1 / 3</span></div>
+    <div class="product-gallery__thumbs" aria-label="表示する画像を選択">
+      <a data-gallery-thumb href="../assets/img/off-box-centered.png" aria-current="true" aria-label="画像1：全体"><img src="../assets/img/off-box-centered.png" alt="OFF BOX・斜めから見た全体" width="76" height="76"></a>
+      <a data-gallery-thumb href="../assets/img/off-box-front.png" aria-label="画像2：正面"><img src="../assets/img/off-box-front.png" alt="OFF BOX・正面" width="76" height="76"></a>
+      <a data-gallery-thumb href="../assets/img/off-box-detail.png" aria-label="画像3：上部の接写"><img src="../assets/img/off-box-detail.png" alt="OFF BOX・操作部と充電口の接写" width="76" height="76"></a>
+    </div>
+    <p class="product-gallery__note">提供写真をもとにした生成イメージです。細部は実物と異なる場合があります。</p>
+  </section>
   <div class="pdp__info">
     <p class="prod__kind">TOKI DIRECT — OFF</p>
     <h1 class="pdp__name">OFF BOX<small>タイムロックケース</small></h1>
@@ -209,5 +220,6 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
   });
 })();
 </script>
+<script src="../assets/js/product-gallery.js?v=20260913"></script>
 </body>
 </html>
