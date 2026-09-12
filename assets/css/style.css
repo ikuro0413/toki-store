@@ -1,6 +1,6 @@
 /* TOKI STORE v2 — DetoxNews トンマナ継承（白基調×游ゴシック×黄マーカー×橙点使い） */
 :root{
-  --ink:#262626; --ink2:#333232; --sub:#7a7a7a;
+  --ink:#262626; --ink2:#333232; --sub:#686868;
   --bg:#ffffff; --bg-gray:#f4f4f4; --line:#dcdcdc;
   --accent:#fb8902; --marker:#ffe600;
   --card:#ffffff; --on-ink:#ffffff; --cta-bg:#e3e9f2;
@@ -515,7 +515,6 @@ html[data-theme="dark"] .qa__q::before{color:#141519}
 
 /* Store finishing: clear routes, compact mobile navigation and visible focus. */
 [hidden]{display:none!important}
-:root{--sub:#686868}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
 [id]{scroll-margin-top:120px}
 .hero{padding-left:24px;padding-right:24px}

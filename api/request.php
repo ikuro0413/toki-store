@@ -25,11 +25,23 @@ if ($fields['website'] !== '') request_reply(200, true);
 if ($fields['item'] === '' || ($fields['email'] !== '' && !filter_var($fields['email'], FILTER_VALIDATE_EMAIL))) request_reply(422, false);
 if (!toki_rate_limit('request:' . toki_client_ip(), 5, 600)) request_reply(429, false);
 
-$endpoint = 'https://script.google.com/macros/s/AKfycbyzrdHXZylQcxo4vWrZPAedu6mCmvX3Pk9qJmww5MdX1CrZcG9HmjuLlJz9lx8if36w/exec';
+// 送信先と合言葉は公開ディレクトリの外の設定から読む。
+// 設定がまだ入っていない間は、従来の埋め込みURLへ倒してフォームを止めない。
+// toki-env.php に gas_request_endpoint を入れたら、下の既定値は消してよい。
+$conf = toki_config();
+$endpoint = (string)($conf['gas_request_endpoint'] ?? '');
+if ($endpoint === '') {
+    $endpoint = 'https://script.google.com/macros/s/AKfycbyzrdHXZylQcxo4vWrZPAedu6mCmvX3Pk9qJmww5MdX1CrZcG9HmjuLlJz9lx8if36w/exec';
+}
+
+// GAS側にも合言葉を付ける。PHPの連打よけだけだと、GASのURLを直接叩かれたら素通りする
+$payload = $fields;
+if (!empty($conf['gas_request_token'])) $payload['token'] = (string)$conf['gas_request_token'];
+
 $ch = curl_init($endpoint);
 curl_setopt_array($ch, [
     CURLOPT_POST => true,
-    CURLOPT_POSTFIELDS => http_build_query($fields),
+    CURLOPT_POSTFIELDS => http_build_query($payload),
     CURLOPT_HTTPHEADER => ['Content-Type: application/x-www-form-urlencoded'],
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_FOLLOWLOCATION => true,
