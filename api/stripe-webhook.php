@@ -96,9 +96,11 @@ if ($type === 'checkout.session.completed') {
         'tracking_number'       => '',
     ];
 
-    toki_record_order($order);
-    http_response_code(200);
-    exit('ok');
+    // 控えを先に残してからStripeへ200を返し、遅いGAS送信は応答の後ろへ回す
+    toki_save_order_local($order);
+    toki_finish_response('ok');
+    toki_push_order_to_gas($order);
+    exit;
 }
 
 if ($type === 'charge.refunded') {
@@ -119,15 +121,17 @@ if ($type === 'charge.refunded') {
         exit('no order_id');
     }
 
-    toki_record_order([
+    $refund = [
         'order_id'              => $orderId,
         'created_at'            => date('c'),
         'payment_status'        => 'refunded',
         'stripe_payment_intent' => $piId,
         'price_jpy'             => (int)($ch['amount_refunded'] ?? 0),
-    ]);
-    http_response_code(200);
-    exit('ok');
+    ];
+    toki_save_order_local($refund);
+    toki_finish_response('ok');
+    toki_push_order_to_gas($refund);
+    exit;
 }
 
 // 扱わない種類のイベントも200で返す（Stripeに再送させない）

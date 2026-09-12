@@ -120,12 +120,41 @@ function toki_stripe(string $method, string $path, array $params = [], array $he
     return $json;
 }
 
-/** 注文を記録する。GASウェブアプリ（スプレッドシート）へ送り、同時にローカルへも残す */
-function toki_record_order(array $order): void {
-    // 先にローカル保存。GASが落ちても注文を失わない
+/**
+ * 注文の控えをローカルに残す。GASが落ちても注文を失わないための保険。
+ * Stripeへ200を返す前に必ずこれを済ませる。
+ */
+function toki_save_order_local(array $order): void {
     $line = json_encode($order, JSON_UNESCAPED_UNICODE) . "\n";
     @file_put_contents(toki_private_dir() . '/orders.jsonl', $line, FILE_APPEND | LOCK_EX);
+}
 
+/**
+ * Stripeへ先に200を返して接続を閉じ、残りの処理を続ける。
+ *
+ * GASウェブアプリは応答に十数秒かかることがあり、初回のテスト購入では
+ * Webhookの応答が19.5秒だった（Stripeのタイムアウトは30秒）。
+ * 遅い処理を200の後ろに追い出して、再送ループに入るのを防ぐ。
+ */
+function toki_finish_response(string $body = 'ok'): void {
+    ignore_user_abort(true);
+    if (!headers_sent()) {
+        http_response_code(200);
+        header('Content-Type: text/plain; charset=utf-8');
+        header('Content-Length: ' . strlen($body));
+        header('Connection: close');
+    }
+    echo $body;
+    if (function_exists('fastcgi_finish_request')) {
+        fastcgi_finish_request();
+    } else {
+        @ob_end_flush();
+        @flush();
+    }
+}
+
+/** 注文をGASウェブアプリ（スプレッドシート）へ送る。応答を返したあとに呼ぶ */
+function toki_push_order_to_gas(array $order): void {
     $conf = toki_config();
     if (empty($conf['gas_order_endpoint'])) {
         toki_log('skip', 'gas_endpoint未設定 ' . ($order['order_id'] ?? ''));
