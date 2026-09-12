@@ -25,14 +25,10 @@ if ($fields['website'] !== '') request_reply(200, true);
 if ($fields['item'] === '' || ($fields['email'] !== '' && !filter_var($fields['email'], FILTER_VALIDATE_EMAIL))) request_reply(422, false);
 if (!toki_rate_limit('request:' . toki_client_ip(), 5, 600)) request_reply(429, false);
 
-// 送信先と合言葉は公開ディレクトリの外の設定から読む。
-// 設定がまだ入っていない間は、従来の埋め込みURLへ倒してフォームを止めない。
-// toki-env.php に gas_request_endpoint を入れたら、下の既定値は消してよい。
+// 送信先と合言葉は公開ディレクトリの外の設定から読む。コードには書かない
 $conf = toki_config();
 $endpoint = (string)($conf['gas_request_endpoint'] ?? '');
-if ($endpoint === '') {
-    $endpoint = 'https://script.google.com/macros/s/AKfycbyzrdHXZylQcxo4vWrZPAedu6mCmvX3Pk9qJmww5MdX1CrZcG9HmjuLlJz9lx8if36w/exec';
-}
+if ($endpoint === '') request_reply(500, false);
 
 // GAS側にも合言葉を付ける。PHPの連打よけだけだと、GASのURLを直接叩かれたら素通りする
 $payload = $fields;
