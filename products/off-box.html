@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OFF BOX — タイムロックケース｜TOKI STORE</title>
-<meta name="description" content="スマホをしまう時間をつくる、TOKI DIRECTのタイムロック商品。販売準備中のため、予定仕様と確認項目をご案内します。">
+<meta name="description" content="決めた時間だけスマホを開けられなくするタイムロックケース。TOKI DIRECTの予約販売。3,980円・税込送料込・発送前はいつでも全額返金。">
 <link rel="canonical" href="https://store.detoxnews.jp/products/off-box.html">
 <link rel="icon" href="../favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -18,16 +18,35 @@
   gtag('js', new Date());
   gtag('config', 'G-C0Q65N4606');
 </script>
-<link rel="stylesheet" href="../assets/css/style.css?v=20260912b">
+<link rel="stylesheet" href="../assets/css/style.css?v=20260912c">
 <script id="theme-init">(function(){try{var t=localStorage.getItem('theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}
 function lbl(){var b=document.querySelector('.theme-toggle');if(b)b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'昼モード':'夜モード';}
 window.__themeToggle=function(){var d=document.documentElement,n=d.getAttribute('data-theme')==='dark'?'light':'dark';if(n==='dark')d.setAttribute('data-theme','dark');else d.removeAttribute('data-theme');try{localStorage.setItem('theme',n)}catch(e){}lbl();};
 document.addEventListener('DOMContentLoaded',lbl);})();</script>
 <meta property="og:type" content="product">
 <meta property="og:title" content="OFF BOX — タイムロックケース｜TOKI STORE">
-<meta property="og:description" content="スマホをしまう時間をつくる、TOKI DIRECTのタイムロック商品。販売準備中のため、予定仕様と確認項目をご案内します。">
+<meta property="og:description" content="決めた時間だけスマホを開けられなくするタイムロックケース。TOKI DIRECTの予約販売。3,980円・税込送料込・発送前はいつでも全額返金。">
 <meta property="og:url" content="https://store.detoxnews.jp/products/off-box.html">
 <meta property="og:site_name" content="TOKI STORE">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "OFF BOX — タイムロックケース",
+  "description": "決めた時間だけスマホを開けられなくするタイムロックケース。電子タイマー式で、着信には箱に入れたまま応答できる。",
+  "brand": { "@type": "Brand", "name": "TOKI" },
+  "url": "https://store.detoxnews.jp/products/off-box.html",
+  "sku": "TOKI-OFF-001",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "JPY",
+    "price": "3980",
+    "availability": "https://schema.org/PreOrder",
+    "url": "https://store.detoxnews.jp/products/off-box.html",
+    "seller": { "@type": "Organization", "name": "TOKI" }
+  }
+}
+</script>
 </head>
 <body>
 
@@ -49,8 +68,8 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
 
   <div class="pdp__media">
     <div class="pdp__nophoto">
-      <p class="pdp__nophoto-ttl">OFF BOX — COMING SOON</p>
-      <p>商品写真は、現物確認後に公開します。</p>
+      <p class="pdp__nophoto-ttl">OFF BOX — PRE-ORDER</p>
+      <p>商品写真は、現物が届き次第、実写に差し替えます。</p>
     </div>
   </div>
 
@@ -59,15 +78,20 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
     <h1 class="pdp__name">OFF BOX<small>タイムロックケース</small></h1>
     <p class="pdp__catch">23:00、スマホを眠らせる。</p>
 
-    <p class="pdp__price">¥3,980<small>予定価格・税込・送料込</small></p>
+    <p class="pdp__price">¥3,980<small>税込・送料込</small></p>
 
-    <div class="pdp__state">
-      <p class="pdp__state-ttl">準備中</p>
-      <p>商品の選定と仕様の確認を進めています。販売開始日・最終仕様は、決まり次第このページでお知らせします。現在はご注文・ご予約を受け付けていません。</p>
+    <div class="pdp__state pdp__state--pre">
+      <p class="pdp__state-ttl">予約受付中</p>
+      <p>現物の最終確認を進めている段階のため、予約販売として先にお申し込みを受け付けています。</p>
+      <ul class="pdp__terms">
+        <li>発送予定：<strong>2026年11月30日まで</strong>（発送日が決まり次第メールでご連絡します）</li>
+        <li>代金は先にお支払いいただきます。</li>
+        <li>最終仕様が下の予定と異なった場合は、発送前にご連絡します。ご希望があれば全額返金します。</li>
+        <li>発送前であれば、いつでもキャンセルでき、全額返金します。</li>
+      </ul>
     </div>
 
-    <!-- 販売開始時に data-state を active にして、下の form の hidden を外す -->
-    <form class="pdp__buy" method="POST" action="../api/checkout.php" data-state="soon" hidden>
+    <form class="pdp__buy" method="POST" action="../api/checkout.php" data-state="preorder">
       <input type="hidden" name="sku" value="off-box">
       <label class="pdp__qty">
         個数
@@ -76,12 +100,16 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
           <option value="2">2</option>
         </select>
       </label>
-      <button type="submit" class="form-btn" id="buyBtn">購入する</button>
-      <p class="pdp__buy-note">決済はStripeの画面で行う。カード情報はTOKIのサーバーを通らない。</p>
+      <label class="pdp__agree">
+        <input type="checkbox" id="agree" required>
+        <span>予約販売であり、商品の発送が2026年11月30日までになることを確認しました。</span>
+      </label>
+      <button type="submit" class="form-btn" id="buyBtn">予約する</button>
+      <p class="pdp__buy-note">決済はStripeの画面で行う。カード情報はTOKIのサーバーを通らない。<a href="../legal/tokushoho.html">特定商取引法に基づく表記</a></p>
     </form>
 
     <p class="sec-more" style="text-align:left;margin-top:24px">
-      <a href="../request.html?item=off-box">販売開始のお知らせを希望する</a>
+      <a href="../request.html?item=off-box">予約はせず、発送開始の連絡だけ希望する</a>
     </p>
   </div>
 </div>
@@ -89,33 +117,36 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
 <div class="article">
 
   <h2>スマホを置く時間を、先に決める</h2>
-  <p>寝る前に置いたはずのスマホに、つい手が伸びる。OFF BOXは、タイマーで決めた時間だけスマホをしまい、目の前のことへ向き直るための商品として準備しています。</p>
-  <p>目指すのは、なんとなく開く前に一呼吸おけること。急用のときには解除できる、一手間のある仕組みを選びます。</p>
+  <p>寝る前に置いたはずのスマホに、つい手が伸びる。OFF BOXは、タイマーで決めた時間だけスマホをしまい、目の前のことへ向き直るための道具です。</p>
+  <p>目指すのは、なんとなく開く前に一呼吸おけること。着信には箱の中のスマホのまま出られる仕様を選んでいます。</p>
 
   <h2>たとえば、夜の30分に</h2>
   <ol><li>必要な連絡を済ませて、スマホをしまう。</li><li>本を読む、明日の支度をするなど、過ごし方を一つ決める。</li><li>時間が来たら取り出す。無理のない長さから始める。</li></ol>
   <p class="article-note">使い方の例です。製品の性能や睡眠への効果を保証するものではありません。</p>
 
-  <h2>予定している仕様</h2>
+  <h2>予約時点の仕様</h2>
   <div class="cmp-scroll"><table class="cmp"><tbody>
     <tr><th>販売区分</th><td>TOKI DIRECT（TOKIによる仕入れ・販売）</td></tr>
-    <tr><th>予定価格</th><td>3,980円（税込・送料込）</td></tr>
-    <tr><th>ロック方式</th><td>電子タイマー式を予定</td></tr>
-    <tr><th>緊急解除</th><td>一手間かけて解除できる仕様を選定中</td></tr>
-    <tr><th>充電中の収納</th><td>ケーブルを通せる仕様を予定</td></tr>
-    <tr><th>サイズ・重量・電源</th><td>現物確認後に掲載します</td></tr>
-    <tr><th>お届け・返品</th><td>販売開始前に、確定した条件をご案内します</td></tr>
+    <tr><th>価格</th><td>3,980円（税込・送料込）</td></tr>
+    <tr><th>ロック方式</th><td>電子タイマー式。設定した時間が来るまで開かない</td></tr>
+    <tr><th>緊急解除</th><td>解除ボタンは設けない。着信には箱に入れたまま出られる</td></tr>
+    <tr><th>充電中の収納</th><td>ケーブルを通す穴があり、充電したまま施錠できる</td></tr>
+    <tr><th>電源</th><td>本体にタイマー用の充電池を内蔵（スマホへの給電機能はない）</td></tr>
+    <tr><th>サイズ・重量</th><td>およそ21.5×9.4×2.3cm・約170g（現物で実測して確定します）</td></tr>
+    <tr><th>発送予定</th><td>2026年11月30日まで</td></tr>
+    <tr><th>キャンセル・返品</th><td>発送前はいつでもキャンセル可・全額返金。到着後の条件は<a href="../legal/tokushoho.html">特定商取引法に基づく表記</a>のとおり</td></tr>
   </tbody></table></div>
-  <p class="article-note">掲載内容は販売準備中の予定です。実際に販売する商品の仕様・価格は、現物確認後に確定します。</p>
+  <p class="article-note">上記は予約時点の予定です。現物の確認によって仕様が変わった場合は、発送前にご連絡し、ご希望があれば全額返金します。</p>
 
-  <h2>販売前に確かめること</h2>
+  <h2>予約の前に確かめること</h2>
   <div class="qa">
-    <div class="qa__item"><p class="qa__q">急ぎの電話が来たら取り出せますか？</p><p class="qa__a">緊急解除ができるものを選ぶ方針です。具体的な操作と解除にかかる手間は、現物で確かめて掲載します。</p></div>
-    <div class="qa__item"><p class="qa__q">ロック中に電池が切れたらどうなりますか？</p><p class="qa__a">電池切れ時に開くか、解除に別の操作が必要かを確認し、販売前に明記します。</p></div>
-    <div class="qa__item"><p class="qa__q">自分のスマホは入りますか？</p><p class="qa__a">内寸と対応サイズを実測して掲載します。ケースを付けた状態で入るかも、購入前に確認できるようにします。</p></div>
+    <div class="qa__item"><p class="qa__q">急ぎの電話が来たらどうなりますか？</p><p class="qa__a">着信音は鳴り、箱に入れたまま応答できる仕様のものを選んでいます。ただし解除ボタンは設けません。いつでも開けられる逃げ道があると、置く意味がなくなるためです。実際の操作感は現物で確かめ、このページに追記します。</p></div>
+    <div class="qa__item"><p class="qa__q">ロック中に電池が切れたらどうなりますか？</p><p class="qa__a">現物で確かめている最中です。結果は、開くにせよ開かないにせよ、そのままここに書きます。発送前にお知らせし、ご希望があれば全額返金します。</p></div>
+    <div class="qa__item"><p class="qa__q">自分のスマホは入りますか？</p><p class="qa__a">内寸を実測して掲載します。ケースを付けた状態で入るかも確かめます。入らない場合は発送前にご連絡し、全額返金します。</p></div>
+    <div class="qa__item"><p class="qa__q">なぜ現物の前に予約を受けるのですか？</p><p class="qa__a">どれだけの方が必要としているかを先に知るためです。予約数を見てから仕入れる数を決めます。確かめられていないことは、確かめられていないと書いたうえで受け付けています。</p></div>
     <div class="qa__item"><p class="qa__q">TOKI SELECTとの違いは何ですか？</p><p class="qa__a">SELECTはAmazonで販売されている他社商品のご紹介です。DIRECTはTOKIが仕入れ、販売・お問い合わせ対応を行います。</p></div>
   </div>
-  <p class="sec-more"><a href="../request.html?item=off-box">販売開始のお知らせを希望する</a></p>
+  <p class="sec-more"><a href="../request.html?item=off-box">予約はせず、発送開始の連絡だけ希望する</a></p>
 
 </div>
 
@@ -144,18 +175,29 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
       </ul>
     </div>
   </div>
-  <div class="footer-support"><a href="../tokushoho.html">運営者情報</a><a href="../privacy.html">プライバシーポリシー</a><a href="mailto:info@detoxnews.jp">お問い合わせ</a></div>
+  <div class="footer-support"><a href="../tokushoho.html">運営者情報</a><a href="../legal/tokushoho.html">特定商取引法に基づく表記</a><a href="../privacy.html">プライバシーポリシー</a><a href="mailto:info@detoxnews.jp">お問い合わせ</a></div>
   <div class="disclosure">
     <span>© TOKI</span>
     <span>Amazonのアソシエイトとして、TOKI STOREは適格販売により収入を得ています。</span>
   </div>
 </footer>
 
-<script src="../assets/js/main.js?v=20260912b"></script>
+<script src="../assets/js/main.js?v=20260912c"></script>
 <script>
 (function(){
   var f = document.querySelector('.pdp__buy');
   if (!f) return;
+
+  // 予約の条件に同意するまで予約ボタンを押せないようにする。
+  // JSが動かない環境では required だけが効くので、その場合もボタンは使える。
+  var agree = document.getElementById('agree');
+  var btn   = document.getElementById('buyBtn');
+  if (agree && btn) {
+    var sync = function(){ btn.disabled = !agree.checked; };
+    agree.addEventListener('change', sync);
+    sync();
+  }
+
   f.addEventListener('submit', function(){
     var q = f.querySelector('[name=qty]');
     if (typeof gtag === 'function') {

@@ -49,6 +49,44 @@ function toki_product(string $slug): ?array {
 }
 
 /**
+ * 予約の受付済み数を数える。予約枠を超えて受けてしまうのを防ぐためのもの。
+ *
+ * 数えるのは orders.jsonl に残った確定分だけ（＝Webhookが通った注文）。
+ * 返金された注文番号は差し引く。読めないときは0を返す。
+ * 決済画面へ進む直前の判定なので、同時アクセスでは枠をわずかに超えることがある。
+ * 枠は在庫そのものではなく受付の目安として使う。
+ */
+function toki_preorder_count(string $sku): int {
+    $path = toki_private_dir() . '/orders.jsonl';
+    if (!is_readable($path)) return 0;
+
+    $lines = @file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    if (!$lines) return 0;
+
+    $refunded = [];
+    $orders   = [];
+    foreach ($lines as $line) {
+        $o = json_decode($line, true);
+        if (!is_array($o)) continue;
+        $id = (string)($o['order_id'] ?? '');
+        if (($o['payment_status'] ?? '') === 'refunded') {
+            if ($id !== '') $refunded[$id] = true;
+            continue;
+        }
+        if ((string)($o['sku'] ?? '') !== $sku) continue;
+        if (($o['preorder'] ?? '') !== '1') continue;
+        if ($id === '') continue;
+        $orders[$id] = max(1, (int)($o['quantity'] ?? 1));
+    }
+
+    $n = 0;
+    foreach ($orders as $id => $qty) {
+        if (!isset($refunded[$id])) $n += $qty;
+    }
+    return $n;
+}
+
+/**
  * 注文番号の採番。T-YYYYMMDD-0001 形式。
  * 排他ロックを取ってカウンタを進めるので、同時アクセスでも重複しない。
  */
