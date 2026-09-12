@@ -18,19 +18,24 @@
   gtag('js', new Date());
   gtag('config', 'G-C0Q65N4606');
 </script>
-<link rel="stylesheet" href="assets/css/style.css?v=20260912a">
+<link rel="stylesheet" href="assets/css/style.css?v=20260912b">
 <script id="theme-init">(function(){try{var t=localStorage.getItem('theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}
 function lbl(){var b=document.querySelector('.theme-toggle');if(b)b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'昼モード':'夜モード';}
 window.__themeToggle=function(){var d=document.documentElement,n=d.getAttribute('data-theme')==='dark'?'light':'dark';if(n==='dark')d.setAttribute('data-theme','dark');else d.removeAttribute('data-theme');try{localStorage.setItem('theme',n)}catch(e){}lbl();};
 document.addEventListener('DOMContentLoaded',lbl);})();</script>
+<meta property="og:type" content="website">
+<meta property="og:title" content="こんな道具が欲しい — 製品リクエスト｜TOKI STORE">
+<meta property="og:url" content="https://store.detoxnews.jp/request.html">
+<meta property="og:site_name" content="TOKI STORE">
 </head>
 <body>
 
 <header class="site-header">
   <a class="site-logo" href="index.html">TOKI <span class="accent">STORE</span><span class="sub">SLEEP &amp; DIGITAL SOVEREIGNTY GOODS</span></a>
-  <nav class="header-nav">
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">メニュー</button>
+  <nav class="header-nav" id="site-nav" aria-label="メインメニュー">
     <a class="nav-link" href="index.html#products">製品</a>
-    <a class="nav-link nav-sub" href="index.html#how">TOKIの作り方</a>
+    <a class="nav-link nav-sub" href="index.html#how">TOKIの選び方</a>
     <a class="nav-link" href="articles.html">コラム</a>
     <button class="theme-toggle" onclick="__themeToggle()" aria-label="表示モード切り替え">夜モード</button>
     <a class="header-cta" href="https://rentalloungeomiya.com/" target="_blank" rel="noopener">DetoxNews</a>
@@ -43,17 +48,18 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
   <h1 class="article-title">こんな道具が欲しい</h1>
   <p class="form-lead">TOKI STOREは、思いつきで商品を並べません。何に困っているかが分かってから道具を探します。<br>「こういうものがあれば解決するのに」というものがあれば、教えてください。選定と開発の判断材料にします。</p>
 
+  <noscript><p class="form-note">フォームの送信にはJavaScriptが必要です。<a href="mailto:info@detoxnews.jp">メールでのお問い合わせ</a>も受け付けています。</p></noscript>
   <form id="requestForm" novalidate>
     <div class="field">
       <label for="item">どんな道具が欲しいですか <span class="req">必須</span></label>
       <p class="hint">まだ形になっていない思いつきで構いません。</p>
-      <textarea id="item" name="item" rows="3" required placeholder="例：朝だけ解除される鍵付きの箱"></textarea>
+      <textarea id="item" name="item" rows="3" maxlength="600" required placeholder="例：朝だけ解除される鍵付きの箱"></textarea>
     </div>
 
     <div class="field">
       <label for="problem">それで何を解決したいですか</label>
       <p class="hint">今どんな場面で困っているかを書いてもらえると、別の解き方が見つかることがあります。</p>
-      <textarea id="problem" name="problem" rows="4" placeholder="例：夜だけは我慢できるのに、朝起きた直後にスマホを見てしまって一日が崩れる"></textarea>
+      <textarea id="problem" name="problem" rows="4" maxlength="2000" placeholder="例：夜だけは我慢できるのに、朝起きた直後にスマホを見てしまって一日が崩れる"></textarea>
     </div>
 
     <div class="field">
@@ -71,7 +77,7 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
     <div class="field">
       <label for="email">メールアドレス</label>
       <p class="hint">任意です。実現したときや、詳しく聞きたいときにだけ使います。営業には使いません。</p>
-      <input type="email" id="email" name="email" placeholder="任意">
+      <input type="email" id="email" name="email" maxlength="254" autocomplete="email" placeholder="任意">
     </div>
 
     <div class="hp" aria-hidden="true">
@@ -82,10 +88,10 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
     <p class="form-note">いただいた内容は道具の選定・開発の検討にのみ使います。個別のご返信をお約束するものではありません。取り扱いの詳細は<a href="privacy.html">プライバシーポリシー</a>をご覧ください。</p>
 
     <button type="submit" class="form-btn" id="submitBtn">送信する</button>
-    <p class="form-error" id="formError" hidden>必須項目が空です。欲しい道具を書いてから送信してください。</p>
+    <p class="form-error" id="formError" role="alert" hidden>必須項目が空です。欲しい道具を書いてから送信してください。</p>
   </form>
 
-  <div class="form-done" id="formDone" hidden>
+  <div class="form-done" id="formDone" tabindex="-1" hidden>
     <p class="form-done__ttl">送信しました</p>
     <p>ありがとうございます。いただいた内容は必ず目を通します。</p>
     <p class="form-done__nav"><a href="index.html#products">製品一覧を見る</a>　<a href="articles.html">コラムを読む</a></p>
@@ -93,57 +99,14 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
 </div>
 
 <footer class="site-footer">
+  <div class="footer-support"><a href="tokushoho.html">運営者情報</a><a href="privacy.html">プライバシーポリシー</a><a href="mailto:info@detoxnews.jp">お問い合わせ</a></div>
   <div class="disclosure">
     <span>© TOKI</span>
     <a href="index.html">ストアトップへ戻る</a>
   </div>
 </footer>
 
-<script>
-(function () {
-  'use strict';
-  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbyzrdHXZylQcxo4vWrZPAedu6mCmvX3Pk9qJmww5MdX1CrZcG9HmjuLlJz9lx8if36w/exec';
-  var form = document.getElementById('requestForm');
-  var btn = document.getElementById('submitBtn');
-  var err = document.getElementById('formError');
-  var done = document.getElementById('formDone');
-
-  form.addEventListener('submit', function (ev) {
-    ev.preventDefault();
-    var item = document.getElementById('item').value.trim();
-    if (!item) {
-      err.hidden = false;
-      document.getElementById('item').focus();
-      return;
-    }
-    err.hidden = true;
-    btn.disabled = true;
-    btn.textContent = '送信中…';
-
-    var body = new URLSearchParams({
-      item: item,
-      problem: document.getElementById('problem').value.trim(),
-      budget: document.getElementById('budget').value,
-      email: document.getElementById('email').value.trim(),
-      website: document.getElementById('website').value,
-      page: location.href,
-      ua: navigator.userAgent
-    });
-
-    /* GASのウェブアプリはCORSヘッダを返さないため no-cors で投げる。
-       レスポンスは読めないので、完了表示は送信の成否に関わらず出す。
-       実際に届いたかはスプレッドシートと _log で確認する。 */
-    fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: body })
-      .catch(function () { /* no-cors では失敗も握りつぶされる */ })
-      .then(function () {
-        if (window.gtag) { gtag('event', 'request_submit'); }
-        form.hidden = true;
-        done.hidden = false;
-        done.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      });
-  });
-})();
-</script>
-<script src="assets/js/main.js?v=20260912a"></script>
+<script src="assets/js/request.js?v=20260912b"></script>
+<script src="assets/js/main.js?v=20260912b"></script>
 </body>
 </html>

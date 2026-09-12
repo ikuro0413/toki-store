@@ -18,17 +18,22 @@
   gtag('js', new Date());
   gtag('config', 'G-C0Q65N4606');
 </script>
-<link rel="stylesheet" href="assets/css/style.css?v=20260912a">
+<link rel="stylesheet" href="assets/css/style.css?v=20260912b">
 <script id="theme-init">(function(){try{var t=localStorage.getItem('theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}
 function lbl(){var b=document.querySelector('.theme-toggle');if(b)b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'昼モード':'夜モード';}
 window.__themeToggle=function(){var d=document.documentElement,n=d.getAttribute('data-theme')==='dark'?'light':'dark';if(n==='dark')d.setAttribute('data-theme','dark');else d.removeAttribute('data-theme');try{localStorage.setItem('theme',n)}catch(e){}lbl();};
 document.addEventListener('DOMContentLoaded',lbl);})();</script>
+<meta property="og:type" content="website">
+<meta property="og:title" content="プライバシーポリシー｜TOKI STORE">
+<meta property="og:url" content="https://store.detoxnews.jp/privacy.html">
+<meta property="og:site_name" content="TOKI STORE">
 </head>
 <body>
 
 <header class="site-header">
   <a class="site-logo" href="index.html">TOKI <span class="accent">STORE</span><span class="sub">SLEEP &amp; DIGITAL SOVEREIGNTY GOODS</span></a>
-  <nav class="header-nav">
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">メニュー</button>
+  <nav class="header-nav" id="site-nav" aria-label="メインメニュー">
     <a class="nav-link" href="index.html#products">製品</a>
     <a class="nav-link" href="articles.html">コラム</a>
     <a class="nav-link nav-sub" href="index.html#faq">よくある質問</a>
@@ -84,12 +89,13 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
 </div>
 
 <footer class="site-footer">
+  <div class="footer-support"><a href="tokushoho.html">運営者情報</a><a href="privacy.html">プライバシーポリシー</a><a href="mailto:info@detoxnews.jp">お問い合わせ</a></div>
   <div class="disclosure">
     <span>© TOKI</span>
     <a href="index.html">ストアトップへ戻る</a>
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=20260912a"></script>
+<script src="assets/js/main.js?v=20260912b"></script>
 </body>
 </html>
