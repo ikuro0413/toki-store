@@ -9,10 +9,10 @@
   var email = document.getElementById('email');
   var notice = new URLSearchParams(location.search).get('item') === 'off-box';
   if (notice) {
-    document.title = 'OFF BOX 販売開始のお知らせ｜TOKI STORE';
-    document.querySelector('.article-title').textContent = 'OFF BOX 販売開始のお知らせ';
+    document.title = 'スマホタイムロックケース 販売開始のお知らせ｜TOKI STORE';
+    document.querySelector('.article-title').textContent = 'スマホタイムロックケース 販売開始のお知らせ';
     document.querySelector('.form-lead').textContent = '販売開始が決まったときに、メールでお知らせします。予約や購入のお申し込みではありません。';
-    item.value = 'OFF BOXの販売開始のお知らせを希望';
+    item.value = 'スマホタイムロックケースの販売開始のお知らせを希望';
     item.readOnly = true;
     email.required = true;
     document.querySelector('label[for="email"]').innerHTML = 'メールアドレス <span class="req">必須</span>';

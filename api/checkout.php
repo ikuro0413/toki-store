@@ -34,6 +34,7 @@ if (!$p) toki_fail(404, 'product_not_found', 'sku=' . $slug);
 $color = '';
 $colorName = '';
 if ($slug === 'off-box') {
+    $p['name'] = 'スマホタイムロックケース';
     $colors = require __DIR__ . '/colors.php';
     $color = $_POST['color'] ?? 'white';
     if (!is_string($color) || !isset($colors[$color])) {

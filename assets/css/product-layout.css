@@ -53,3 +53,5 @@
 .color-photo-thumbs a{display:flex;align-items:center;justify-content:center}
 .color-photo-thumbs .color-option__photo{width:32px;height:62px}
 .color-photo-thumbs .color-option__photo img{position:absolute;width:500%;max-width:none;height:auto;left:var(--crop-left);top:-35.2px}
+
+.product-title-price{font-size:28px;line-height:1.5;margin:16px 0;color:var(--ink);font-weight:700}.product-title-price small{font-size:12px;font-weight:400;white-space:nowrap}
