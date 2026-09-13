@@ -46,3 +46,6 @@
 @media(max-width:700px){.product-colors__options{grid-template-columns:repeat(5,minmax(0,1fr))}}
 
 .product-title-price{font-size:28px;line-height:1.5;margin:16px 0;color:var(--ink);font-weight:700}.product-title-price small{font-size:12px;font-weight:400;white-space:nowrap}
+
+.product-page .pdp__name{text-wrap:balance}
+@media(max-width:700px){.color-option__card{font-size:clamp(7px,2.2vw,9px);letter-spacing:0}.color-option__card>span:last-child{white-space:nowrap}}
