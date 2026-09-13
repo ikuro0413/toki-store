@@ -84,6 +84,8 @@ if ($type === 'checkout.session.completed') {
         ]))),
         'sku'                   => (string)($meta['sku'] ?? ''),
         'item_name'             => (string)($item['description'] ?? ''),
+        'color'                 => (string)($meta['color'] ?? ''),
+        'color_name'            => (string)($meta['color_name'] ?? ''),
         'quantity'              => (int)($item['quantity'] ?? 1),
         'price_jpy'             => (int)($s['amount_total'] ?? 0),
         'payment_status'        => 'paid',

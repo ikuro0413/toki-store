@@ -5,6 +5,13 @@
   const links = Array.from(gallery.querySelectorAll('[data-gallery-thumb]'));
   const count = gallery.querySelector('[data-gallery-count]');
   let current = 0;
+  const outline = gallery.querySelector('[data-color-outline]');
+  function showColor() {
+    const chosen = document.querySelector('input[name="color"]:checked');
+    if (!chosen || !outline) return;
+    outline.hidden = current !== links.length - 1;
+    outline.style.left = chosen.dataset.left + '%';
+  }
   function select(index) {
     current = (index + links.length) % links.length;
     const link = links[current];
@@ -15,6 +22,7 @@
       else item.removeAttribute('aria-current');
     });
     count.textContent = `${current + 1} / ${links.length}`;
+    showColor();
   }
   links.forEach((link, i) => link.addEventListener('click', event => {
     event.preventDefault();
@@ -28,5 +36,12 @@
     if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
     event.preventDefault();
     select(current + (event.key === 'ArrowRight' ? 1 : -1));
+  });
+  document.querySelectorAll('input[name="color"]').forEach(input => {
+    input.addEventListener('change', () => {
+      document.querySelector('[data-color-name]').textContent = input.dataset.label;
+      gallery.querySelector('[data-color-caption]').textContent = '選択カラー：' + input.dataset.label;
+      select(input.value === 'white' ? 0 : links.length - 1);
+    });
   });
 })();

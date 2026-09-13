@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
 }
 </script>
 <link rel="stylesheet" href="../assets/css/product-gallery.css?v=20260913">
-<link rel="stylesheet" href="../assets/css/product-layout.css?v=20260913d">
+<link rel="stylesheet" href="../assets/css/product-layout.css?v=20260913colors">
 </head>
 <body class="product-page">
 
@@ -72,16 +72,19 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
   <section class="product-gallery" data-gallery aria-label="OFF BOXの商品画像">
     <div class="product-gallery__stage">
       <img data-gallery-image src="../assets/img/off-box-centered.png" alt="OFF BOX・斜めから見た全体" width="1254" height="1254" fetchpriority="high">
+      <span class="gallery-color-outline" data-color-outline hidden aria-hidden="true"></span>
       <button hidden type="button" class="product-gallery__arrow product-gallery__arrow--prev" data-gallery-step="-1" aria-label="前の画像">‹</button>
       <button hidden type="button" class="product-gallery__arrow product-gallery__arrow--next" data-gallery-step="1" aria-label="次の画像">›</button>
     </div>
-    <div class="product-gallery__bar"><span>商品画像</span><span data-gallery-count aria-live="polite" aria-atomic="true">1 / 3</span></div>
+    <p class="gallery-color-caption" data-color-caption aria-live="polite">選択カラー：ホワイト</p>
+    <div class="product-gallery__bar"><span>商品画像</span><span data-gallery-count aria-live="polite" aria-atomic="true">1 / 4</span></div>
     <div class="product-gallery__thumbs" aria-label="表示する画像を選択">
       <a data-gallery-thumb href="../assets/img/off-box-centered.png" aria-current="true" aria-label="画像1：全体"><img src="../assets/img/off-box-centered.png" alt="OFF BOX・斜めから見た全体" width="76" height="76"></a>
       <a data-gallery-thumb href="../assets/img/off-box-front.png" aria-label="画像2：正面"><img src="../assets/img/off-box-front.png" alt="OFF BOX・正面" width="76" height="76"></a>
       <a data-gallery-thumb href="../assets/img/off-box-detail.png" aria-label="画像3：上部の接写"><img src="../assets/img/off-box-detail.png" alt="OFF BOX・操作部と充電口の接写" width="76" height="76"></a>
+      <a data-gallery-thumb href="../assets/img/off-box-colors.jpg" aria-label="画像4：カラー一覧"><img src="../assets/img/off-box-colors.jpg" alt="メーカー提供の5色一覧。左からブラック、ホワイト、ピンク、スカイブルー、パープル" width="76" height="76"></a>
     </div>
-    <p class="product-gallery__note">提供写真をもとにした生成イメージです。細部は実物と異なる場合があります。</p>
+    <p class="product-gallery__note">全体・正面・接写は生成イメージ、カラー一覧はメーカー提供写真です。細部や色味は実物と異なる場合があります。</p>
   </section>
   <div class="pdp__info">
     <p class="prod__kind">TOKI DIRECT — OFF</p>
@@ -89,11 +92,12 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
     <p class="pdp__catch">23:00、スマホを眠らせる。</p>
 
     <p class="product-brand">販売元：TOKI ／ TOKI DIRECT</p>
+<fieldset class="product-colors"><legend>カラー：<strong data-color-name>ホワイト</strong></legend><div class="product-colors__options"><label class="color-option"><input type="radio" name="color" form="purchase-form" value="white" data-label="ホワイト" data-left="24" checked><span class="color-option__card"><span class="color-option__photo" style="--crop-left:-120%"><img src="../assets/img/off-box-colors.jpg" alt="" width="1000" height="1000"></span><span>ホワイト</span></span></label><label class="color-option"><input type="radio" name="color" form="purchase-form" value="black" data-label="ブラック" data-left="5"><span class="color-option__card"><span class="color-option__photo" style="--crop-left:-25%"><img src="../assets/img/off-box-colors.jpg" alt="" width="1000" height="1000"></span><span>ブラック</span></span></label><label class="color-option"><input type="radio" name="color" form="purchase-form" value="pink" data-label="ピンク" data-left="40"><span class="color-option__card"><span class="color-option__photo" style="--crop-left:-200%"><img src="../assets/img/off-box-colors.jpg" alt="" width="1000" height="1000"></span><span>ピンク</span></span></label><label class="color-option"><input type="radio" name="color" form="purchase-form" value="blue" data-label="スカイブルー" data-left="57"><span class="color-option__card"><span class="color-option__photo" style="--crop-left:-285%"><img src="../assets/img/off-box-colors.jpg" alt="" width="1000" height="1000"></span><span>スカイブルー</span></span></label><label class="color-option"><input type="radio" name="color" form="purchase-form" value="purple" data-label="パープル" data-left="73"><span class="color-option__card"><span class="color-option__photo" style="--crop-left:-365%"><img src="../assets/img/off-box-colors.jpg" alt="" width="1000" height="1000"></span><span>パープル</span></span></label></div><p>写真はメーカー提供の色見本です。色味は実物と異なる場合があります。</p></fieldset>
     <hr>
     <h2 class="product-summary-title">この商品について</h2>
     <ul class="product-highlights">
       <li>決めた時間だけスマホをしまう、電子タイマー式のケース。</li>
-      <li>白い本体と透明カバー。中のスマホが見えるデザイン。</li>
+      <li>5色の本体と透明カバー。中のスマホが見えるデザイン。</li>
       <li>充電ケーブルを通せる仕様を予定しています。</li>
       <li>外寸215 × 94 × 23mm、重量168g（メーカー記載）。内寸は170 × 90 × 17mmです。</li>
     </ul>
@@ -114,7 +118,7 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
       </ul>
     </div>
 
-    <form class="pdp__buy" method="POST" action="../api/checkout.php" data-state="preorder">
+    <form class="pdp__buy" id="purchase-form" method="POST" action="../api/checkout.php" data-state="preorder">
       <input type="hidden" name="sku" value="off-box">
       <label class="pdp__qty">
         個数
@@ -155,7 +159,7 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
     <tr><th>充電中の収納</th><td>メーカーは収納中のスマホの充電に対応すると説明しています。配線方法・対応条件は未確認です</td></tr>
     <tr><th>電源</th><td>本体にタイマー用の充電池を内蔵。スマホへの給電機能の有無は確認中です</td></tr>
     <tr><th>型番</th><td>JSY-SJS001（メーカー記載）</td></tr>
-    <tr><th>カラー</th><td>ホワイト／透明カバー</td></tr>
+    <tr><th>カラー</th><td>ホワイト・ブラック・ピンク・スカイブルー・パープル／透明カバー</td></tr>
     <tr><th>材質</th><td>ABS（メーカー記載。部位ごとの材質は未確認）</td></tr>
     <tr><th>外寸</th><td>215 × 94 × 23mm（メーカー記載）</td></tr>
     <tr><th>内寸</th><td>170 × 90 × 17mm（メーカー記載。収納の目安）</td></tr>
@@ -173,6 +177,7 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
     <img src="../assets/img/off-box-centered.png" alt="OFF BOX・斜めから見た全体" width="1254" height="1254" loading="lazy" decoding="async">
     <img src="../assets/img/off-box-front.png" alt="OFF BOX・正面" width="1254" height="1254" loading="lazy" decoding="async">
     <img src="../assets/img/off-box-detail.png" alt="OFF BOX・操作部と充電口の接写" width="1254" height="1254" loading="lazy" decoding="async">
+    <img src="../assets/img/off-box-colors.jpg" alt="メーカー提供の5色一覧" width="1000" height="1000" loading="lazy">
   </section>
   <h2 id="questions">よくあるご質問</h2>
   <div class="qa">
@@ -248,6 +253,6 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
   });
 })();
 </script>
-<script src="../assets/js/product-gallery.js?v=20260913"></script>
+<script src="../assets/js/product-gallery.js?v=20260913colors"></script>
 </body>
 </html>

@@ -31,6 +31,19 @@ if ($slug === '') toki_fail(400, 'sku_missing', 'skuが空');
 $p = toki_product($slug);
 if (!$p) toki_fail(404, 'product_not_found', 'sku=' . $slug);
 
+$color = '';
+$colorName = '';
+if ($slug === 'off-box') {
+    $colors = require __DIR__ . '/colors.php';
+    $color = $_POST['color'] ?? 'white';
+    if (!is_string($color) || !isset($colors[$color])) {
+        toki_fail(400, 'invalid_color', '未対応のカラー');
+    }
+    $colorName = $colors[$color];
+    $p['name'] .= '（' . $colorName . '）';
+    $p['image_url'] = $base . '/assets/img/' . ($color === 'white' ? 'off-box-centered.png' : 'off-box-colors.jpg');
+}
+
 // active = 在庫を持って売る / preorder = 現物が届く前の予約を受ける
 $status = (string)($p['status'] ?? 'draft');
 if ($status !== 'active' && $status !== 'preorder') {
@@ -99,9 +112,11 @@ $params = [
         'source_product_id' => (string)($p['source_product_id'] ?? ''),
         'preorder'          => $isPreorder ? '1' : '0',
         'ship_eta'          => $shipEta,
+        'color'             => $color,
+        'color_name'        => $colorName,
     ],
     'payment_intent_data' => [
-        'metadata'    => ['order_id' => $orderId, 'sku' => (string)$p['sku']],
+        'metadata'    => ['order_id' => $orderId, 'sku' => (string)$p['sku'], 'color' => $color, 'color_name' => $colorName],
         'description' => ($isPreorder ? 'TOKI STORE 予約 ' : 'TOKI STORE ') . $orderId,
     ],
 ];
