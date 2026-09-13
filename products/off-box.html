@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
 }
 </script>
 <link rel="stylesheet" href="../assets/css/product-gallery.css?v=20260913">
-<link rel="stylesheet" href="../assets/css/product-layout.css?v=20260913colors">
+<link rel="stylesheet" href="../assets/css/product-layout.css?v=20260913thumbs">
 </head>
 <body class="product-page">
 
@@ -72,19 +72,20 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
   <section class="product-gallery" data-gallery aria-label="OFF BOXの商品画像">
     <div class="product-gallery__stage">
       <img data-gallery-image src="../assets/img/off-box-centered.png" alt="OFF BOX・斜めから見た全体" width="1254" height="1254" fetchpriority="high">
+      <div class="gallery-color-preview" data-color-preview hidden><img src="../assets/img/off-box-colors.jpg" alt="" width="1000" height="1000"></div>
       <span class="gallery-color-outline" data-color-outline hidden aria-hidden="true"></span>
       <button hidden type="button" class="product-gallery__arrow product-gallery__arrow--prev" data-gallery-step="-1" aria-label="前の画像">‹</button>
       <button hidden type="button" class="product-gallery__arrow product-gallery__arrow--next" data-gallery-step="1" aria-label="次の画像">›</button>
     </div>
     <p class="gallery-color-caption" data-color-caption aria-live="polite">選択カラー：ホワイト</p>
-    <div class="product-gallery__bar"><span>商品画像</span><span data-gallery-count aria-live="polite" aria-atomic="true">1 / 4</span></div>
+    <div class="product-gallery__bar"><span>商品画像</span><span data-gallery-count aria-live="polite" aria-atomic="true">1 / 9</span></div>
     <div class="product-gallery__thumbs" aria-label="表示する画像を選択">
       <a data-gallery-thumb href="../assets/img/off-box-centered.png" aria-current="true" aria-label="画像1：全体"><img src="../assets/img/off-box-centered.png" alt="OFF BOX・斜めから見た全体" width="76" height="76"></a>
       <a data-gallery-thumb href="../assets/img/off-box-front.png" aria-label="画像2：正面"><img src="../assets/img/off-box-front.png" alt="OFF BOX・正面" width="76" height="76"></a>
       <a data-gallery-thumb href="../assets/img/off-box-detail.png" aria-label="画像3：上部の接写"><img src="../assets/img/off-box-detail.png" alt="OFF BOX・操作部と充電口の接写" width="76" height="76"></a>
       <a data-gallery-thumb href="../assets/img/off-box-colors.jpg" aria-label="画像4：カラー一覧"><img src="../assets/img/off-box-colors.jpg" alt="メーカー提供の5色一覧。左からブラック、ホワイト、ピンク、スカイブルー、パープル" width="76" height="76"></a>
     </div>
-    <p class="product-gallery__note">全体・正面・接写は生成イメージ、カラー一覧はメーカー提供写真です。細部や色味は実物と異なる場合があります。</p>
+<div class="product-gallery__thumbs color-photo-thumbs"><a data-gallery-thumb data-color="white" data-left="24" data-label="ホワイト" href="../assets/img/off-box-colors.jpg" aria-label="ホワイトの写真"><span class="color-option__photo" style="--crop-left:-120%"><img src="../assets/img/off-box-colors.jpg" alt="OFF BOX・ホワイト" width="1000" height="1000"></span></a><a data-gallery-thumb data-color="black" data-left="5" data-label="ブラック" href="../assets/img/off-box-colors.jpg" aria-label="ブラックの写真"><span class="color-option__photo" style="--crop-left:-25%"><img src="../assets/img/off-box-colors.jpg" alt="OFF BOX・ブラック" width="1000" height="1000"></span></a><a data-gallery-thumb data-color="pink" data-left="40" data-label="ピンク" href="../assets/img/off-box-colors.jpg" aria-label="ピンクの写真"><span class="color-option__photo" style="--crop-left:-200%"><img src="../assets/img/off-box-colors.jpg" alt="OFF BOX・ピンク" width="1000" height="1000"></span></a><a data-gallery-thumb data-color="blue" data-left="57" data-label="スカイブルー" href="../assets/img/off-box-colors.jpg" aria-label="スカイブルーの写真"><span class="color-option__photo" style="--crop-left:-285%"><img src="../assets/img/off-box-colors.jpg" alt="OFF BOX・スカイブルー" width="1000" height="1000"></span></a><a data-gallery-thumb data-color="purple" data-left="73" data-label="パープル" href="../assets/img/off-box-colors.jpg" aria-label="パープルの写真"><span class="color-option__photo" style="--crop-left:-365%"><img src="../assets/img/off-box-colors.jpg" alt="OFF BOX・パープル" width="1000" height="1000"></span></a></div>    <p class="product-gallery__note">全体・正面・接写は生成イメージ、カラー一覧はメーカー提供写真です。細部や色味は実物と異なる場合があります。</p>
   </section>
   <div class="pdp__info">
     <p class="prod__kind">TOKI DIRECT — OFF</p>
@@ -253,6 +254,6 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
   });
 })();
 </script>
-<script src="../assets/js/product-gallery.js?v=20260913colors"></script>
+<script src="../assets/js/product-gallery.js?v=20260913thumbs"></script>
 </body>
 </html>

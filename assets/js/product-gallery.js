@@ -6,15 +6,26 @@
   const count = gallery.querySelector('[data-gallery-count]');
   let current = 0;
   const outline = gallery.querySelector('[data-color-outline]');
+  const preview = gallery.querySelector('[data-color-preview]');
   function showColor() {
     const chosen = document.querySelector('input[name="color"]:checked');
     if (!chosen || !outline) return;
-    outline.hidden = current !== links.length - 1;
+    outline.hidden = current !== 3;
     outline.style.left = chosen.dataset.left + '%';
   }
   function select(index) {
     current = (index + links.length) % links.length;
     const link = links[current];
+    preview.hidden = !link.dataset.color;
+    main.style.visibility = link.dataset.color ? 'hidden' : '';
+    if (link.dataset.color) {
+      preview.style.setProperty('--crop-left', (-Number(link.dataset.left) * 5) + '%');
+      preview.querySelector('img').alt = link.querySelector('img').alt;
+      const radio = document.querySelector('input[name="color"][value="' + link.dataset.color + '"]');
+      radio.checked = true;
+      document.querySelector('[data-color-name]').textContent = radio.dataset.label;
+      gallery.querySelector('[data-color-caption]').textContent = '選択カラー：' + radio.dataset.label;
+    }
     main.src = link.href;
     main.alt = link.querySelector('img').alt;
     links.forEach((item, i) => {
@@ -41,7 +52,7 @@
     input.addEventListener('change', () => {
       document.querySelector('[data-color-name]').textContent = input.dataset.label;
       gallery.querySelector('[data-color-caption]').textContent = '選択カラー：' + input.dataset.label;
-      select(input.value === 'white' ? 0 : links.length - 1);
+      select(links.findIndex(link => link.dataset.color === input.value));
     });
   });
 })();
