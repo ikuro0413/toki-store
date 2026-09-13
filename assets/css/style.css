@@ -555,3 +555,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   .footer-support{gap:12px 18px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}.has-reveal .reveal{opacity:1;transform:none}}
+.direct-preview{grid-template-columns:180px minmax(0,1fr) minmax(0,1.2fr);align-items:center}
+.direct-thumbnail{display:block;aspect-ratio:1;background:#fff;border:1px solid var(--line);overflow:hidden}
+.direct-thumbnail img{display:block;width:100%;height:100%;object-fit:contain}
+@media(max-width:790px){.direct-preview{grid-template-columns:140px minmax(0,1fr)}.direct-preview>div:last-child{grid-column:1 / -1}}
+@media(max-width:480px){.direct-preview{grid-template-columns:100px minmax(0,1fr);gap:18px}.direct-preview h2{font-size:23px}}
