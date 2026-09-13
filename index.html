@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TOKI STORE｜デジタルとの距離を、見直す道具</title>
-<meta name="description" content="スマホを置く時間と、目の前のことに向き合う時間を。タイムロックケースや紙のToDoカードなど、デジタルとの距離を見直す道具を紹介するTOKI STORE。">
+<meta name="description" content="スマホを置く時間と、目の前のことに向き合う時間を。スマホタイムロックケースなど、デジタルとの距離を見直す道具を選び、販売するTOKI STORE。">
 <link rel="canonical" href="https://store.detoxnews.jp/">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -23,24 +23,6 @@
 function lbl(){var b=document.querySelector('.theme-toggle');if(b)b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'昼モード':'夜モード';}
 window.__themeToggle=function(){var d=document.documentElement,n=d.getAttribute('data-theme')==='dark'?'light':'dark';if(n==='dark')d.setAttribute('data-theme','dark');else d.removeAttribute('data-theme');try{localStorage.setItem('theme',n)}catch(e){}lbl();};
 document.addEventListener('DOMContentLoaded',lbl);})();</script>
-<script id="select-track">(function(){
-document.addEventListener('click',function(e){
-var t=e.target;if(!t||!t.closest)return;
-var a=t.closest('.prod a[href*="amazon.co.jp"], .prod a.prod__read');if(!a)return;
-var card=a.closest('.prod');if(!card)return;
-var nm=card.querySelector('.prod__name');
-var all=[].slice.call(document.querySelectorAll('.prod'));
-var u=a.getAttribute('href')||'',sku='';
-var d=u.indexOf('/dp/');if(d>-1)sku=u.slice(d+4).split('?')[0].split('/')[0];
-if(typeof gtag==='function'){gtag('event','affiliate_click',{
-aff_item_name:(nm?nm.childNodes[0].textContent:'').trim().slice(0,90),
-aff_item_id:sku,
-aff_network:a.className.indexOf('prod__read')>-1?'detoxnews':'amazon',
-aff_category:card.getAttribute('data-aff-cat')||'unset',
-card_position:all.indexOf(card)+1,
-click_area:a.className.indexOf('prod__read')>-1?'read':'button',
-article_path:location.pathname});}
-},true);})();</script>
 <meta property="og:type" content="website">
 <meta property="og:title" content="TOKI STORE｜デジタルとの距離を、見直す道具">
 <meta property="og:url" content="https://store.detoxnews.jp/">
@@ -183,8 +165,7 @@ article_path:location.pathname});}
     <div>
       <h5>PRODUCTS</h5>
       <ul>
-        <li><a href="#select-01">タイムロックケース（SELECT #01）</a></li>
-        <li><a href="#select-02">ToDoカード＋ウォールナット台（SELECT #02）</a></li>
+        <li><a href="products/off-box.html">スマホタイムロックケース</a></li>
       </ul>
     </div>
     <div>
@@ -208,7 +189,7 @@ article_path:location.pathname});}
   <div class="footer-support"><a href="tokushoho.html">運営者情報</a><a href="legal/tokushoho.html">特定商取引法に基づく表記</a><a href="privacy.html">プライバシーポリシー</a><a href="mailto:info@detoxnews.jp">お問い合わせ</a></div>
   <div class="disclosure">
     <span>© TOKI</span>
-    
+
   </div>
 </footer>
 

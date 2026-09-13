@@ -42,7 +42,7 @@ if ($slug === 'off-box') {
     }
     $colorName = $colors[$color];
     $p['name'] .= '（' . $colorName . '）';
-    $p['image_url'] = $base . '/assets/img/' . ($color === 'white' ? 'off-box-centered.png' : 'off-box-colors.jpg');
+    $p['image_url'] = $base . '/assets/img/' . ($color === 'white' ? 'off-box-centered.png' : 'off-box-' . $color . '.png');
 }
 
 // active = 在庫を持って売る / preorder = 現物が届く前の予約を受ける
