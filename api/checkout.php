@@ -31,18 +31,21 @@ if ($slug === '') toki_fail(400, 'sku_missing', 'skuが空');
 $p = toki_product($slug);
 if (!$p) toki_fail(404, 'product_not_found', 'sku=' . $slug);
 
+// カラーは商品ごとに colors.php が持つ（tools/build-catalog.mjs が商品データから生成する）。
+// 定義が無い商品は色を扱わない。商品名も画像も商品DB側の値をそのまま使う。
 $color = '';
 $colorName = '';
-if ($slug === 'off-box') {
-    $p['name'] = 'スマホタイムロックケース';
-    $colors = require __DIR__ . '/colors.php';
-    $color = $_POST['color'] ?? 'white';
-    if (!is_string($color) || !isset($colors[$color])) {
-        toki_fail(400, 'invalid_color', '未対応のカラー');
+$colorsBySlug = require __DIR__ . '/colors.php';
+$colors = $colorsBySlug[$slug] ?? [];
+if ($colors) {
+    $keys  = array_keys($colors);
+    $color = (string)($_POST['color'] ?? $keys[0]);
+    if (!isset($colors[$color])) {
+        toki_fail(400, 'invalid_color', '未対応のカラー: ' . $color);
     }
-    $colorName = $colors[$color];
+    $colorName = (string)$colors[$color]['label'];
     $p['name'] .= '（' . $colorName . '）';
-    $p['image_url'] = $base . '/assets/img/' . ($color === 'white' ? 'off-box-centered.png' : 'off-box-' . $color . '.png');
+    $p['image_url'] = $base . '/assets/img/' . $colors[$color]['image'];
 }
 
 // active = 在庫を持って売る / preorder = 現物が届く前の予約を受ける
