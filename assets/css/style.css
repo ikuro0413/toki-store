@@ -93,6 +93,12 @@ section.gray{
 .prod__price small{display:block;font-size:12px;color:var(--sub);font-weight:400}
 .prod__copy{color:var(--sub);font-size:13px;margin-top:10px;line-height:1.9;flex:1}
 .prod__actions{margin-top:18px}
+/* カード全体をクリックできるようにする。
+   ボタンのリンクの疑似要素を .prod（position:relative）の全面へ広げる。
+   入れ子の <a> を作らずに済み、リンクは1つのままなので読み上げも壊れない。 */
+.prod__actions .btn::after{content:"";position:absolute;inset:0;z-index:1}
+.prod__media img{transition:transform .25s}
+.prod:hover .prod__media img{transform:scale(1.02)}
 .btn{
   display:block;text-align:center;font-size:14px;font-weight:700;letter-spacing:.08em;
   padding:13px 20px;border-radius:999px;
