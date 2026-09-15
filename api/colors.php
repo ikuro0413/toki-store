@@ -16,4 +16,9 @@ return [
         'blue' => ['label' => 'ブルー', 'image' => 'lock-case-sos-blue.jpg'],
         'pink' => ['label' => 'ピンク', 'image' => 'lock-case-sos-pink.jpg'],
     ],
+    'focus-timer' => [
+        'white' => ['label' => 'ホワイト', 'image' => 'focus-timer-white.jpg'],
+        'black' => ['label' => 'ブラック', 'image' => 'focus-timer-black.jpg'],
+        'silver' => ['label' => 'シルバー', 'image' => 'focus-timer-silver.jpg'],
+    ],
 ];
