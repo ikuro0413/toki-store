@@ -11,4 +11,9 @@ return [
         'blue' => ['label' => 'スカイブルー', 'image' => 'off-box-blue.png'],
         'purple' => ['label' => 'パープル', 'image' => 'off-box-purple.png'],
     ],
+    'lock-case-sos' => [
+        'cream' => ['label' => 'オフホワイト', 'image' => 'lock-case-sos-cream.jpg'],
+        'blue' => ['label' => 'ブルー', 'image' => 'lock-case-sos-blue.jpg'],
+        'pink' => ['label' => 'ピンク', 'image' => 'lock-case-sos-pink.jpg'],
+    ],
 ];
