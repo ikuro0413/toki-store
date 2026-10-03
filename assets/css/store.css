@@ -66,7 +66,6 @@ body.k{margin:0;font-family:"Yu Gothic Medium","游ゴシック Medium",YuGothic
 .slide{position:relative;flex:0 0 100%;scroll-snap-align:start;aspect-ratio:16/9;background:var(--bg-gray);overflow:hidden}
 .slide img{width:100%;height:100%;object-fit:cover}
 .slide__cap{position:absolute;left:0;right:0;bottom:0;background:rgba(255,255,255,.95);padding:10px 16px;font-size:16px;font-weight:300}
-.slide__cap span{background:linear-gradient(transparent 62%,var(--marker) 62%)}
 .thumbs{display:flex;gap:6px;margin-bottom:32px}
 .thumbs a{width:64px;aspect-ratio:16/9;background:var(--bg-gray);overflow:hidden}
 .thumbs img{width:100%;height:100%;object-fit:cover}
