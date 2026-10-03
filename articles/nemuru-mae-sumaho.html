@@ -18,11 +18,9 @@
   gtag('js', new Date());
   gtag('config', 'G-JCG935P0HH');
 </script>
-<link rel="stylesheet" href="../assets/css/style.css?v=20260915a">
-<script id="theme-init">(function(){try{var t=localStorage.getItem('theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}
-function lbl(){var b=document.querySelector('.theme-toggle');if(b)b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'昼モード':'夜モード';}
-window.__themeToggle=function(){var d=document.documentElement,n=d.getAttribute('data-theme')==='dark'?'light':'dark';if(n==='dark')d.setAttribute('data-theme','dark');else d.removeAttribute('data-theme');try{localStorage.setItem('theme',n)}catch(e){}lbl();};
-document.addEventListener('DOMContentLoaded',lbl);})();</script>
+<link rel="stylesheet" href="../assets/css/style.css?v=20261004a">
+<link rel="stylesheet" href="../assets/css/store.css?v=20261004a">
+
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Article","headline":"寝る前のスマホは本当に眠りを妨げるのか — 「2時間前」より効いていたのは場所だった","datePublished":"2026-09-08","dateModified":"2026-09-08","author":{"@type":"Organization","name":"TOKI"},"publisher":{"@type":"Organization","name":"TOKI STORE"},"mainEntityOfPage":"https://store.detoxnews.jp/articles/nemuru-mae-sumaho.html"}
 </script>
@@ -33,15 +31,47 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
 </head>
 <body>
 
-<header class="site-header">
-  <a class="site-logo" href="../index.html">TOKI <span class="accent">STORE</span><span class="sub">SLEEP &amp; DIGITAL SOVEREIGNTY GOODS</span></a>
-  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">メニュー</button>
-  <nav class="header-nav" id="site-nav" aria-label="メインメニュー">
-    <a class="nav-link" href="../index.html#products">製品</a>
-    <a class="nav-link nav-sub" href="../index.html#how">TOKIの選び方</a>
-    <a class="nav-link" href="../articles.html">コラム</a>
-    <button class="theme-toggle" onclick="__themeToggle()" aria-label="表示モード切り替え">夜モード</button>
-    <a class="header-cta" href="https://rentalloungeomiya.com/" target="_blank" rel="noopener">DetoxNews</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z"/><path d="M12 6v14"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 3h6"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
+  <symbol id="i-guide" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14A8 8 0 1 1 10 4a6 6 0 0 0 10 10z"/></symbol>
+  <symbol id="i-desk" viewBox="0 0 24 24"><path d="M3 10h18M5 10v9M19 10v9M8 10V6h8v4"/></symbol>
+  <symbol id="i-start" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</svg>
+<header class="hd">
+  <div class="kwrap hd__top">
+    <a class="logo" href="../index.html"><b>TOKI STORE</b><small>スマホとの距離を見直す、お買いものメディア</small></a>
+    <form class="search pc-only" role="search" method="get" action="../products.html" data-items="../products.html" data-reads="../articles.html">
+      <label><input type="radio" name="kind" value="items" checked> アイテムを探す</label>
+      <label><input type="radio" name="kind" value="reads"> 記事を探す</label>
+      <input type="search" name="q" placeholder="キーワードを入力" aria-label="キーワード">
+    </form>
+    <div class="hd__tools">
+      <a href="#ksearch" class="sp-search" aria-controls="ksearch" aria-expanded="false" aria-label="検索"><svg class="ico"><use href="#i-search"/></svg>検索</a>
+      <a href="../index.html#guide"><svg class="ico"><use href="#i-guide"/></svg>ご利用ガイド</a>
+    </div>
+  </div>
+  <div class="sp-searchbox" id="ksearch"><form class="search" role="search" method="get" action="../products.html" data-items="../products.html" data-reads="../articles.html">
+      <label><input type="radio" name="kind" value="items" checked> アイテムを探す</label>
+      <label><input type="radio" name="kind" value="reads"> 記事を探す</label>
+      <input type="search" name="q" placeholder="キーワードを入力" aria-label="キーワード">
+    </form></div>
+  <nav class="kwrap gnav pc-only" aria-label="メインメニュー">
+    <a href="../products.html"><svg class="ico"><use href="#i-bag"/></svg>お買いもの</a>
+    <a href="../articles.html"><svg class="ico"><use href="#i-book"/></svg>読みもの</a>
+    <a href="../index.html#preorder"><svg class="ico"><use href="#i-clock"/></svg>予約アイテム</a>
+    <a href="../index.html#scenes"><svg class="ico"><use href="#i-list"/></svg>場面から探す</a>
+  </nav>
+  <nav class="iconnav" aria-label="メインメニュー">
+    <a href="../index.html#scenes"><svg class="ico"><use href="#i-list"/></svg>場面</a>
+    <a href="../products.html"><svg class="ico"><use href="#i-bag"/></svg>お買いもの</a>
+    <a href="../index.html#preorder"><svg class="ico"><use href="#i-clock"/></svg>予約</a>
+    <a href="../articles.html"><svg class="ico"><use href="#i-book"/></svg>読みもの</a>
+    <a href="../index.html#guide"><svg class="ico"><use href="#i-guide"/></svg>ガイド</a>
   </nav>
 </header>
 
@@ -180,14 +210,43 @@ document.addEventListener('DOMContentLoaded',lbl);})();</script>
   <a href="../index.html#products"><span>TOKI STORE</span>製品一覧を見る</a>
 </div>
 
-<footer class="site-footer">
-  <div class="footer-support"><a href="../tokushoho.html">運営者情報</a><a href="../legal/tokushoho.html">特定商取引法に基づく表記</a><a href="../privacy.html">プライバシーポリシー</a><a href="mailto:info@detoxnews.jp">お問い合わせ</a></div>
-  <div class="disclosure">
-    <span>© TOKI</span>
-    <a href="../index.html">ストアトップへ戻る</a>
+<footer class="ft">
+  <div class="kwrap">
+    <div class="ft__cols">
+      <div>
+        <h4>お買いもの</h4>
+        <ul>
+          <li><a href="../products.html">すべてのアイテム</a></li>
+          <li><a href="../products/off-box.html">スマホタイムロックケース</a></li>
+          <li><a href="../products/lock-case-sos.html">スマホタイムロックケース（緊急解除5回つき）</a></li>
+          <li><a href="../products/focus-timer.html">六角タイマー</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>サポート</h4>
+        <ul>
+          <li><a href="../index.html#guide">ご利用ガイド</a></li>
+          <li><a href="../request.html">製品リクエスト</a></li>
+          <li><a href="../tokushoho.html">運営者情報</a></li>
+          <li><a href="../legal/tokushoho.html">特定商取引法に基づく表記</a></li>
+          <li><a href="../privacy.html">プライバシーポリシー</a></li>
+          <li><a href="mailto:info@detoxnews.jp">お問い合わせ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>読みもの・関連サイト</h4>
+        <ul>
+          <li><a href="../articles.html">TOKI STOREの読みもの</a></li>
+          <li><a href="https://rentalloungeomiya.com/" target="_blank" rel="noopener">DetoxNews</a></li>
+          <li><a href="https://shindan.rentalloungeomiya.com/" target="_blank" rel="noopener">睡眠力診断</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="ft__copy">© TOKI</p>
   </div>
 </footer>
 
 <script src="../assets/js/main.js?v=20260913a"></script>
+<script src="../assets/js/store.js?v=20261004a"></script>
 </body>
 </html>

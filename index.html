@@ -18,229 +18,272 @@
   gtag('js', new Date());
   gtag('config', 'G-JCG935P0HH');
 </script>
-<link rel="stylesheet" href="assets/css/style.css?v=20260915a">
-<script id="theme-init">(function(){try{var t=localStorage.getItem('theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}
-function lbl(){var b=document.querySelector('.theme-toggle');if(b)b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'昼モード':'夜モード';}
-window.__themeToggle=function(){var d=document.documentElement,n=d.getAttribute('data-theme')==='dark'?'light':'dark';if(n==='dark')d.setAttribute('data-theme','dark');else d.removeAttribute('data-theme');try{localStorage.setItem('theme',n)}catch(e){}lbl();};
-document.addEventListener('DOMContentLoaded',lbl);})();</script>
+<link rel="stylesheet" href="assets/css/store.css?v=20261004a">
+
 <meta property="og:type" content="website">
 <meta property="og:title" content="TOKI STORE｜デジタルとの距離を、見直す道具">
 <meta property="og:url" content="https://store.detoxnews.jp/">
 <meta property="og:site_name" content="TOKI STORE">
 </head>
-<body>
+<body class="k">
 
-<header class="site-header">
-  <a class="site-logo" href="index.html">TOKI <span class="accent">STORE</span><span class="sub">SLEEP & DIGITAL SOVEREIGNTY GOODS</span></a>
-  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">メニュー</button>
-  <nav class="header-nav" id="site-nav" aria-label="メインメニュー">
-    <a class="nav-link" href="#products">製品</a>
-    <a class="nav-link nav-sub" href="#how">TOKIの選び方</a>
-    <a class="nav-link" href="articles.html">コラム</a>
-    <a class="nav-link nav-sub" href="#faq">よくある質問</a>
-    <button class="theme-toggle" onclick="__themeToggle()" aria-label="表示モード切り替え">夜モード</button>
-    <a class="header-cta" href="https://rentalloungeomiya.com/" target="_blank" rel="noopener">DetoxNews</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z"/><path d="M12 6v14"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 3h6"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
+  <symbol id="i-guide" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14A8 8 0 1 1 10 4a6 6 0 0 0 10 10z"/></symbol>
+  <symbol id="i-desk" viewBox="0 0 24 24"><path d="M3 10h18M5 10v9M19 10v9M8 10V6h8v4"/></symbol>
+  <symbol id="i-start" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</svg>
+<header class="hd">
+  <div class="kwrap hd__top">
+    <a class="logo" href="index.html"><b>TOKI STORE</b><small>スマホとの距離を見直す、お買いものメディア</small></a>
+    <form class="search pc-only" role="search" method="get" action="products.html" data-items="products.html" data-reads="articles.html">
+      <label><input type="radio" name="kind" value="items" checked> アイテムを探す</label>
+      <label><input type="radio" name="kind" value="reads"> 記事を探す</label>
+      <input type="search" name="q" placeholder="キーワードを入力" aria-label="キーワード">
+    </form>
+    <div class="hd__tools">
+      <a href="#ksearch" class="sp-search" aria-controls="ksearch" aria-expanded="false" aria-label="検索"><svg class="ico"><use href="#i-search"/></svg>検索</a>
+      <a href="index.html#guide"><svg class="ico"><use href="#i-guide"/></svg>ご利用ガイド</a>
+    </div>
+  </div>
+  <div class="sp-searchbox" id="ksearch"><form class="search" role="search" method="get" action="products.html" data-items="products.html" data-reads="articles.html">
+      <label><input type="radio" name="kind" value="items" checked> アイテムを探す</label>
+      <label><input type="radio" name="kind" value="reads"> 記事を探す</label>
+      <input type="search" name="q" placeholder="キーワードを入力" aria-label="キーワード">
+    </form></div>
+  <nav class="kwrap gnav pc-only" aria-label="メインメニュー">
+    <a href="products.html"><svg class="ico"><use href="#i-bag"/></svg>お買いもの</a>
+    <a href="articles.html"><svg class="ico"><use href="#i-book"/></svg>読みもの</a>
+    <a href="index.html#preorder"><svg class="ico"><use href="#i-clock"/></svg>予約アイテム</a>
+    <a href="index.html#scenes"><svg class="ico"><use href="#i-list"/></svg>場面から探す</a>
+  </nav>
+  <nav class="iconnav" aria-label="メインメニュー">
+    <a href="index.html#scenes"><svg class="ico"><use href="#i-list"/></svg>場面</a>
+    <a href="products.html"><svg class="ico"><use href="#i-bag"/></svg>お買いもの</a>
+    <a href="index.html#preorder"><svg class="ico"><use href="#i-clock"/></svg>予約</a>
+    <a href="articles.html"><svg class="ico"><use href="#i-book"/></svg>読みもの</a>
+    <a href="index.html#guide"><svg class="ico"><use href="#i-guide"/></svg>ガイド</a>
   </nav>
 </header>
 
-<div class="hero wrap">
-  <h1>デジタルとの距離を、見直す道具</h1>
-  <p class="lead">スマホを置いて、本を読む。今日やることを、紙に書く。<br>自分の時間をつくる、小さな道具を集めました。</p>
-  <div class="hero-actions"><a class="btn btn-primary" href="#products">道具を見る</a><a class="btn btn-ghost" href="#how">選び方を知る</a></div>
-  <p class="hero-note">TOKIが選び、販売する道具をお届けします。「スマホタイムロックケース」は予約受付中です。</p>
-</div>
+<div class="kwrap layout">
 
-<section id="columns">
-  <div class="wrap" style="text-align:center"><h2 class="sec">コラム</h2></div>
-  <div class="wrap">
-    <div class="post-list">
+  <aside class="side">
+    <h2>一覧から探す</h2>
+    <ul>
+      <li><a href="products.html">すべてのアイテム</a></li>
+      <li><a href="#preorder">予約アイテム</a></li>
+    </ul>
+    <h2>場面から探す</h2>
+    <ul>
+      <li><a href="products.html?scene=%E5%AF%9D%E3%82%8B%E5%89%8D%E3%81%AB">寝る前に</a></li>
+      <li><a href="products.html?scene=%E9%9B%86%E4%B8%AD%E3%81%97%E3%81%9F%E3%81%84%E6%97%A5%E3%81%AB">集中したい日に</a></li>
+      <li><a href="products.html?scene=%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AE%E6%96%B9%E3%81%AB">はじめての方に</a></li>
+    </ul>
+    <h2>読みもの</h2>
+    <ul>
+      <li><a href="articles.html">新着の読みもの</a></li>
+      <li><a href="#letters">編集部だより</a></li>
+    </ul>
+  </aside>
 
-      <a class="post reveal" href="articles/ai-kioku.html">
-        <img class="post__thumb" src="assets/img/col-ai-kioku.jpg" alt="" loading="lazy">
-        <div class="post__body">
-        <p class="post__date">2026.09.08</p>
-        <h3 class="post__ttl">AIに任せると記憶に残らないのか — 54人のEEG研究でわかったことと、その限界</h3>
-        <p class="post__excerpt">AIで書いた人の83%が、直後に自分の文章を引用できませんでした。ただし54人・査読前の研究です。</p>
-      </div>
+  <main>
+    <div class="slider" aria-label="特集">
+      <a class="slide" href="articles/sumaho-okiba.html">
+        <img src="assets/img/col-sumaho-okiba.jpg" alt="">
+        <p class="slide__cap"><span>スマホの置き場所、どこにしていますか？</span></p>
       </a>
-
-      <a class="post reveal" href="articles/nemuru-mae-sumaho.html">
-        <img class="post__thumb" src="assets/img/col-nemuru-mae.jpg" alt="" loading="lazy">
-        <div class="post__body">
-        <p class="post__date">2026.09.08</p>
-        <h3 class="post__ttl">寝る前のスマホは本当に眠りを妨げるのか — 「2時間前」より効いていたのは場所だった</h3>
-        <p class="post__excerpt">就寝前2時間の利用は睡眠とほぼ無関係。差が出たのは「ベッドで使うかどうか」でした。</p>
-      </div>
+      <a class="slide" href="products/off-box.html">
+        <img src="assets/img/off-box-colors.jpg" alt="">
+        <p class="slide__cap"><span>スマホタイムロックケース、予約受付中</span></p>
       </a>
-
-      <a class="post reveal" href="articles/tsuchi-chudan.html">
-        <img class="post__thumb" src="assets/img/col-tsuchi-chudan.jpg" alt="" loading="lazy">
-        <div class="post__body">
-        <p class="post__date">2026.09.08</p>
-        <h3 class="post__ttl">通知で中断されると作業に戻るまで何分かかるのか — 「23分15秒」の出どころを確かめた</h3>
-        <p class="post__excerpt">有名な「23分15秒」は、引用元の論文に載っていない数字でした。</p>
-      </div>
+      <a class="slide" href="products/focus-timer.html">
+        <img src="assets/img/focus-timer-white.jpg" alt="">
+        <p class="slide__cap"><span>面を倒すと始まる、六角タイマー</span></p>
       </a>
-
-      <a class="post reveal" href="articles/sumaho-okiba.html">
-        <img class="post__thumb" src="assets/img/col-sumaho-okiba.jpg" alt="" loading="lazy">
-        <div class="post__body">
-        <p class="post__date">2026.09.07</p>
-        <h3 class="post__ttl">スマホの置き場所はどこがいい？ — 寝室に持ち込まない配置の決め方</h3>
-        <p class="post__excerpt">「充電器とセット」「帰宅動線の途中」「寝たまま届かない」の3条件で決まります。</p>
-      </div>
-      </a>
-
     </div>
-    <p class="sec-more"><a href="articles.html">コラムをすべて見る</a></p>
-  </div>
-</section>
+    <div class="thumbs pc-only">
+      <a href="articles/sumaho-okiba.html"><img src="assets/img/col-sumaho-okiba.jpg" alt="スマホの置き場所の読みもの"></a>
+      <a href="products/off-box.html"><img src="assets/img/off-box-colors.jpg" alt="スマホタイムロックケース"></a>
+      <a href="products/focus-timer.html"><img src="assets/img/focus-timer-white.jpg" alt="六角タイマー"></a>
+    </div>
 
-<section id="products" class="direct-section"><span id="direct"></span>
-  <div class="wrap">
 <!-- catalog:products -->
-    <div class="prod-grid">
-      <article class="prod reveal">
-        <div class="prod__media">
-          <!-- width/height を書くと .prod__media img の aspect-ratio:4/3 が効かなくなるので付けない -->
-          <img src="assets/img/off-box-card.jpg" alt="スマホタイムロックケース" loading="lazy">
+    <section class="ksec" id="items">
+      <h2>TOKIのおすすめアイテム</h2>
+      <div class="items items--row">
+      <a class="item" href="products/off-box.html" data-scenes="寝る前に|集中したい日に" data-text="スマホタイムロックケース スマホをしまって、夜を自分の時間に。 決めた時間だけスマホを開けられなくするケース。3,180円・税込送料込。現物の最終確認中のため予約販売とし、発送前はいつでも全額返金します。 寝る前に 集中したい日に">
+        <div class="item__img"><img src="assets/img/off-box-card.jpg" alt="スマホタイムロックケース" loading="lazy"><span class="kbadge">予約</span></div>
+        <p class="item__name">TOKI DIRECT｜スマホタイムロックケース（5色）</p>
+        <p class="item__price">3,180円<small>税込・送料込</small></p>
+        <p class="item__tag">発送前はいつでも全額返金</p>
+        <div class="item__scene"><span>寝る前に</span><span>集中したい日に</span></div>
+      </a>
+      <a class="item" href="products/lock-case-sos.html" data-scenes="はじめての方に|寝る前に" data-text="スマホタイムロックケース（緊急解除5回つき） どうしても、のときだけ開く。 決めた時間まで開かないケース。ただし通算5回だけ、強制的に開けられます。2,380円・税込送料込。予約販売で、発送前はいつでも全額返金します。 はじめての方に 寝る前に">
+        <div class="item__img"><img src="assets/img/lock-case-sos-card.jpg" alt="スマホタイムロックケース（緊急解除5回つき）" loading="lazy"><span class="kbadge">予約</span></div>
+        <p class="item__name">TOKI DIRECT｜スマホタイムロックケース（緊急解除5回つき）（3色）</p>
+        <p class="item__price">2,380円<small>税込・送料込</small></p>
+        <p class="item__tag">発送前はいつでも全額返金</p>
+        <div class="item__scene"><span>はじめての方に</span><span>寝る前に</span></div>
+      </a>
+      <a class="item" href="products/focus-timer.html" data-scenes="集中したい日に" data-text="六角タイマー タイマーのために、スマホを開かない。 面を倒すと、その時間が始まる六角形のタイマー。1・5・10・25・30・60分の6面。2,380円・税込送料込。予約販売で、発送前はいつでも全額返金します。 集中したい日に">
+        <div class="item__img"><img src="assets/img/focus-timer-white.jpg" alt="六角タイマー" loading="lazy"><span class="kbadge">予約</span></div>
+        <p class="item__name">TOKI DIRECT｜六角タイマー（3色）</p>
+        <p class="item__price">2,380円<small>税込・送料込</small></p>
+        <p class="item__tag">発送前はいつでも全額返金</p>
+        <div class="item__scene"><span>集中したい日に</span></div>
+      </a>
+      </div>
+      <p class="kcenter"><a class="kmore" href="products.html">すべてのアイテムを見る</a></p>
+    </section>
+    <section class="ksec" id="preorder">
+      <h2>予約アイテム</h2>
+      <p class="lead-s">予約商品は、発送前ならいつでもキャンセル・全額返金できます。</p>
+      <a class="pre" href="products/off-box.html">
+        <img src="assets/img/off-box-card.jpg" alt="" loading="lazy">
+        <div>
+          <p class="item__name">TOKI DIRECT｜スマホタイムロックケース（5色）</p>
+          <p class="item__price">3,180円<small>税込・送料込</small></p>
+          <span class="pre__eta">2026年11月30日までに発送予定</span>
         </div>
-        <div class="prod__body">
-          <h3 class="prod__name">スマホタイムロックケース</h3>
-          <p class="prod__price">¥3,180<small>税込・送料込</small></p>
-          <p class="prod__copy">決めた時間だけスマホを開けられなくするケース。3,180円・税込送料込。現物の最終確認中のため予約販売とし、発送前はいつでも全額返金します。</p>
-          <div class="prod__actions">
-            <a class="btn btn-ghost" href="products/off-box.html">予約ページを見る</a>
-          </div>
+      </a>
+      <a class="pre" href="products/lock-case-sos.html">
+        <img src="assets/img/lock-case-sos-card.jpg" alt="" loading="lazy">
+        <div>
+          <p class="item__name">TOKI DIRECT｜スマホタイムロックケース（緊急解除5回つき）（3色）</p>
+          <p class="item__price">2,380円<small>税込・送料込</small></p>
+          <span class="pre__eta">2026年11月30日までに発送予定</span>
         </div>
-      </article>
-
-      <article class="prod reveal">
-        <div class="prod__media">
-          <!-- width/height を書くと .prod__media img の aspect-ratio:4/3 が効かなくなるので付けない -->
-          <img src="assets/img/lock-case-sos-card.jpg" alt="スマホタイムロックケース（緊急解除5回つき）" loading="lazy">
+      </a>
+      <a class="pre" href="products/focus-timer.html">
+        <img src="assets/img/focus-timer-white.jpg" alt="" loading="lazy">
+        <div>
+          <p class="item__name">TOKI DIRECT｜六角タイマー（3色）</p>
+          <p class="item__price">2,380円<small>税込・送料込</small></p>
+          <span class="pre__eta">2026年11月30日までに発送予定</span>
         </div>
-        <div class="prod__body">
-          <h3 class="prod__name">スマホタイムロックケース（緊急解除5回つき）</h3>
-          <p class="prod__price">¥2,380<small>税込・送料込</small></p>
-          <p class="prod__copy">決めた時間まで開かないケース。ただし通算5回だけ、強制的に開けられます。2,380円・税込送料込。予約販売で、発送前はいつでも全額返金します。</p>
-          <div class="prod__actions">
-            <a class="btn btn-ghost" href="products/lock-case-sos.html">予約ページを見る</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="prod reveal">
-        <div class="prod__media">
-          <!-- width/height を書くと .prod__media img の aspect-ratio:4/3 が効かなくなるので付けない -->
-          <img src="assets/img/focus-timer-white.jpg" alt="六角タイマー" loading="lazy">
-        </div>
-        <div class="prod__body">
-          <h3 class="prod__name">六角タイマー</h3>
-          <p class="prod__price">¥2,380<small>税込・送料込</small></p>
-          <p class="prod__copy">面を倒すと、その時間が始まる六角形のタイマー。1・5・10・25・30・60分の6面。2,380円・税込送料込。予約販売で、発送前はいつでも全額返金します。</p>
-          <div class="prod__actions">
-            <a class="btn btn-ghost" href="products/focus-timer.html">予約ページを見る</a>
-          </div>
-        </div>
-      </article>
-    </div>
+      </a>
+    </section>
 <!-- /catalog:products -->
-  </div>
-</section>
 
-<section class="gray" id="how">
-  <div class="wrap" style="text-align:center"><h2 class="sec">TOKIの選び方</h2></div>
-  <div class="wrap">
-    <div class="triad">
-      <div class="tcard reveal">
-        <span class="num">01</span>
-        <h3>困っている場面から</h3>
-        <p>寝る前にスマホを見続ける。タスクを確認するだけのつもりが、SNSを開く。そんな場面から道具を探します。</p>
+    <section class="ksec" id="scenes">
+      <h2>場面から探す</h2>
+      <div class="scenes">
+        <a class="scene" href="products.html?scene=%E5%AF%9D%E3%82%8B%E5%89%8D%E3%81%AB"><svg class="ico"><use href="#i-moon"/></svg>寝る前に<small>ベッドにスマホを持ち込まない</small></a>
+        <a class="scene" href="products.html?scene=%E9%9B%86%E4%B8%AD%E3%81%97%E3%81%9F%E3%81%84%E6%97%A5%E3%81%AB"><svg class="ico"><use href="#i-desk"/></svg>集中したい日に<small>机の上から遠ざける</small></a>
+        <a class="scene" href="products.html?scene=%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AE%E6%96%B9%E3%81%AB"><svg class="ico"><use href="#i-start"/></svg>はじめての方に<small>無理のない道具から</small></a>
       </div>
-      <div class="tcard reveal">
-        <span class="num">02</span>
-        <h3>使う場面がわかる</h3>
-        <p>機能の多さより、暮らしのどこで役立つか。スマホを置く、紙に書くといった、小さな行動を助けるものを選びます。</p>
+    </section>
+
+    <section class="ksec" id="reads">
+      <h2>新着の読みもの</h2>
+      <div class="reads">
+        <a class="read" href="articles/ai-kioku.html">
+          <div class="read__img"><img src="assets/img/col-ai-kioku.jpg" alt="" loading="lazy"></div>
+          <div><p class="read__cat">集中したい日に</p><h3 class="read__ttl">AIに任せると記憶に残らないのか — 54人のEEG研究でわかったことと、その限界</h3><p class="read__date">2026.09.08</p></div>
+        </a>
+        <a class="read" href="articles/nemuru-mae-sumaho.html">
+          <div class="read__img"><img src="assets/img/col-nemuru-mae.jpg" alt="" loading="lazy"></div>
+          <div><p class="read__cat">寝る前に</p><h3 class="read__ttl">寝る前のスマホは本当に眠りを妨げるのか — 「2時間前」より効いていたのは場所だった</h3><p class="read__date">2026.09.08</p></div>
+        </a>
+        <a class="read" href="articles/tsuchi-chudan.html">
+          <div class="read__img"><img src="assets/img/col-tsuchi-chudan.jpg" alt="" loading="lazy"></div>
+          <div><p class="read__cat">集中したい日に</p><h3 class="read__ttl">通知で中断されると作業に戻るまで何分かかるのか — 「23分15秒」の出どころを確かめた</h3><p class="read__date">2026.09.08</p></div>
+        </a>
+        <a class="read" href="articles/sumaho-okiba.html">
+          <div class="read__img"><img src="assets/img/col-sumaho-okiba.jpg" alt="" loading="lazy"></div>
+          <div><p class="read__cat">寝る前に</p><h3 class="read__ttl">スマホの置き場所はどこがいい？ — 寝室に持ち込まない配置の決め方</h3><p class="read__date">2026.09.07</p></div>
+        </a>
       </div>
-      <div class="tcard reveal">
-        <span class="num">03</span>
-        <h3>確かめたことを伝える</h3>
-        <p>商品情報からわかることと、現物での確認が必要なことを分けて案内します。合わない使い方や注意点も伝えます。</p>
+      <p class="kcenter"><a class="kmore" href="articles.html">読みものをすべて見る</a></p>
+    </section>
+
+    <section class="ksec" id="letters">
+      <h2>編集部だより</h2>
+      <div class="letter">
+        <span class="letter__ava">TOKI</span>
+        <div>
+          <p class="letter__from">TOKI 編集部</p>
+          <h3 class="letter__ttl">予約の受付を始めました。届くまでのこと</h3>
+          <p class="letter__body">3つの道具の予約を受け付けています。現物の確認がまだ済んでいない仕様は、商品ページに「確認中です」と書いています。確かめたことは、良いことも悪いこともここでお知らせします。発送は2026年11月30日までを予定しています。</p>
+        </div>
       </div>
+    </section>
+  </main>
+
+  <aside class="rside">
+    <div class="rbox">
+      <h3>睡眠力診断</h3>
+      <p>道具の前に、まず自分の夜を知る。</p>
+      <a class="rbtn" href="https://shindan.rentalloungeomiya.com/" target="_blank" rel="noopener">診断する</a>
     </div>
-    <p class="sec-more"><a href="request.html">こんな道具が欲しい、を送る</a></p>
-  </div>
-</section>
-
-<section id="faq">
-  <div class="wrap" style="text-align:center"><h2 class="sec">よくある質問</h2></div>
-  <div class="wrap">
-    <div class="faq-list">
-      <div class="faq reveal">
-        <button class="faq__q">このストアで直接買えますか</button>
-        <div class="faq__a"><p>はい。TOKIが仕入れ・販売し、お問い合わせにも対応します。現在はスマホタイムロックケースの予約を受け付けています。</p></div>
-      </div>
-      <div class="faq reveal">
-        <button class="faq__q">商品の選定基準は</button>
-        <div class="faq__a"><p>メディア「DetoxNews」で読まれているテーマや製品リクエストを参考に、デジタルとの距離を見直す道具を選んでいます。仕入先の商品説明・仕様を確認して選定し、現物未確認の情報は検証済みとは扱いません。</p></div>
-      </div>
-      <div class="faq reveal">
-        <button class="faq__q">発送・返品について</button>
-        <div class="faq__a"><p>送料・発送予定は各商品ページに記載しています。予約商品は発送前であればキャンセル・全額返金できます。詳しくは<a href="legal/tokushoho.html">配送・返品条件</a>をご確認ください。</p></div>
-      </div>
-      <div class="faq reveal">
-        <button class="faq__q">TOKIとは</button>
-        <div class="faq__a"><p>睡眠とデジタル距離をテーマにした個人ブランドです。メディア「DetoxNews」で夜の悩みと道具を検証し、このストアで「奪わない道具」を紹介・販売します。</p></div>
-      </div>
+    <div class="rbox">
+      <h3>DetoxNews</h3>
+      <p>スマホと睡眠の付き合い方を検証するメディア。</p>
+      <a class="rbtn" href="https://rentalloungeomiya.com/" target="_blank" rel="noopener">記事を読む</a>
     </div>
-  </div>
-</section>
-
-<div class="cta-banner">
-  <p class="t">道具の前に、まず自分の夜を知る。</p>
-  <p class="s">スマホと睡眠の付き合い方を検証するメディア「DetoxNews」。<br class="br-sp">道具の選び方も、記事で公開しています。</p>
-  <a class="btn" href="https://rentalloungeomiya.com/" target="_blank" rel="noopener">DetoxNewsを読む</a>
+    <div class="rbox">
+      <h3>こんな道具が欲しい</h3>
+      <p>探してほしい道具を送ってください。</p>
+      <a class="rbtn" href="request.html">リクエストを送る</a>
+    </div>
+    <div id="guide">
+      <h2>ご利用ガイド</h2>
+      <ul class="guide">
+        <li><b>送料</b>全品 送料込み</li>
+        <li><b>予約</b>発送予定を商品ごとに表示</li>
+        <li><b>返金</b>予約商品は発送前ならいつでも全額返金</li>
+        <li><b>お支払い</b>クレジットカード（Stripe）</li>
+        <li><b>運営</b><a href="tokushoho.html">運営者情報</a></li>
+      </ul>
+    </div>
+  </aside>
 </div>
 
-<footer class="site-footer">
-  <div class="cols">
-    <div>
-      <h5>PRODUCTS</h5>
-      <ul>
+<footer class="ft">
+  <div class="kwrap">
+    <div class="ft__cols">
+      <div>
+        <h4>お買いもの</h4>
+        <ul>
 <!-- catalog:footer-products -->
-        <li><a href="products.html">製品一覧</a></li>
-        <li><a href="products/off-box.html">スマホタイムロックケース</a></li>
-        <li><a href="products/lock-case-sos.html">スマホタイムロックケース（緊急解除5回つき）</a></li>
-        <li><a href="products/focus-timer.html">六角タイマー</a></li>
+          <li><a href="products.html">すべてのアイテム</a></li>
+          <li><a href="products/off-box.html">スマホタイムロックケース</a></li>
+          <li><a href="products/lock-case-sos.html">スマホタイムロックケース（緊急解除5回つき）</a></li>
+          <li><a href="products/focus-timer.html">六角タイマー</a></li>
 <!-- /catalog:footer-products -->
-      </ul>
+        </ul>
+      </div>
+      <div>
+        <h4>サポート</h4>
+        <ul>
+          <li><a href="index.html#guide">ご利用ガイド</a></li>
+          <li><a href="request.html">製品リクエスト</a></li>
+          <li><a href="tokushoho.html">運営者情報</a></li>
+          <li><a href="legal/tokushoho.html">特定商取引法に基づく表記</a></li>
+          <li><a href="privacy.html">プライバシーポリシー</a></li>
+          <li><a href="mailto:info@detoxnews.jp">お問い合わせ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>読みもの・関連サイト</h4>
+        <ul>
+          <li><a href="articles.html">TOKI STOREの読みもの</a></li>
+          <li><a href="https://rentalloungeomiya.com/" target="_blank" rel="noopener">DetoxNews</a></li>
+          <li><a href="https://shindan.rentalloungeomiya.com/" target="_blank" rel="noopener">睡眠力診断</a></li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <h5>SUPPORT</h5>
-      <ul>
-        <li><a href="articles.html">コラム</a></li>
-        <li><a href="request.html">製品リクエスト</a></li>
-        <li><a href="#faq">よくある質問</a></li>
-        <li><a href="tokushoho.html">運営者情報</a></li>
-        <li><a href="privacy.html">プライバシーポリシー</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>FAMILY</h5>
-      <ul>
-        <li><a href="https://rentalloungeomiya.com/" target="_blank" rel="noopener">DetoxNews</a></li>
-        <li><a href="https://shindan.rentalloungeomiya.com/" target="_blank" rel="noopener">睡眠力診断</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-support"><a href="tokushoho.html">運営者情報</a><a href="legal/tokushoho.html">特定商取引法に基づく表記</a><a href="privacy.html">プライバシーポリシー</a><a href="mailto:info@detoxnews.jp">お問い合わせ</a></div>
-  <div class="disclosure">
-    <span>© TOKI</span>
-
+    <p class="ft__copy">© TOKI</p>
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=20260913a"></script>
+
+<script src="assets/js/store.js?v=20261004a"></script>
 </body>
 </html>

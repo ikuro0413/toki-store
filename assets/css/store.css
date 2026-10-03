@@ -1,0 +1,179 @@
+/* TOKI STORE — キナリノモール型の構成 × DetoxNewsのトンマナを一部継承
+   キナリノから: 3カラム・細い文字・点線見出し・正方形の商品カード・横スクロール列・アイコンナビ
+   DetoxNewsから: 游ゴシック・黄(#ffe600)の目印・オレンジ(#fb8902)の購入ボタン・黒枠丸の「もっと見る」
+   全ページで style.css の後に読む。トップと製品一覧（body.k）はこのファイルだけで組む。 */
+:root{
+  --ink:#333; --ink2:#333; --sub:#666; --mute:#888; --link:#226c8b;
+  --line:#e6e6e6; --dot:#ccc; --bg:#fff; --bg-gray:#f3f3f3;
+  --accent:#fb8902; --marker:#ffe600; --tag:#c9864a;
+  --kwrap:1080px;
+}
+
+/* ===== トップ・製品一覧だけの土台（style.css を読まないページ） ===== */
+body.k{margin:0;font-family:"Yu Gothic Medium","游ゴシック Medium",YuGothic,"游ゴシック体","Hiragino Kaku Gothic ProN","Noto Sans JP",Meiryo,sans-serif;
+  color:var(--ink);background:var(--bg);font-size:14px;line-height:1.7;letter-spacing:.03em}
+:where(body.k *){box-sizing:border-box;margin:0;padding:0}
+:where(body.k a){color:inherit;text-decoration:none}
+:where(body.k img){display:block;max-width:100%}
+:where(body.k ul,body.k ol){list-style:none}
+
+.kwrap{max-width:var(--kwrap);margin:0 auto;padding:0 16px}
+.ico{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* ===== ヘッダー（全ページ共通） ===== */
+.hd{border-bottom:1px solid var(--line);background:#fff;line-height:1.4;letter-spacing:.03em;font-size:14px;
+  font-family:"Yu Gothic Medium","游ゴシック Medium",YuGothic,"游ゴシック体","Hiragino Kaku Gothic ProN","Noto Sans JP",Meiryo,sans-serif}
+.hd *{box-sizing:border-box}
+.hd a{color:var(--ink);text-decoration:none}
+.hd a:hover{opacity:1;color:var(--link)}
+.hd__top{display:flex;align-items:center;gap:24px;height:64px}
+.logo{display:flex;flex-direction:column;line-height:1.2}
+.logo b{font-size:20px;letter-spacing:.32em;font-weight:600}
+.logo small{font-size:10px;color:var(--sub);letter-spacing:.08em;margin-top:3px}
+.search{margin:0 0 0 auto;display:flex;align-items:center;gap:14px;font-size:12px;color:var(--sub)}
+.search label{display:flex;align-items:center;gap:4px;cursor:pointer}
+.search input[type=search]{width:220px;height:32px;border:1px solid var(--dot);border-radius:16px;padding:0 14px;font:inherit;font-size:12px;background:var(--bg-gray);color:var(--ink)}
+.hd__tools{display:flex;gap:18px;font-size:11px;color:var(--sub)}
+.hd__tools a{display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--sub)}
+.hd__tools .sp-search{display:none}
+.gnav{display:flex;gap:28px;height:44px;align-items:center;font-size:14px}
+.gnav a{display:flex;align-items:center;gap:6px}
+.iconnav{display:none}
+.sp-searchbox{display:none}
+
+/* ===== フッター（全ページ共通） ===== */
+.ft{background:var(--bg-gray);padding:32px 0 20px;font-size:12px;line-height:1.7;letter-spacing:.03em;margin-top:40px}
+.ft a{color:var(--sub);text-decoration:none}
+.ft a:hover{color:var(--link);opacity:1}
+.ft__cols{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:24px}
+.ft h4{font-size:12px;font-weight:600;margin:0 0 8px;letter-spacing:.1em;color:var(--ink)}
+.ft ul{list-style:none;margin:0;padding:0}
+.ft li{padding:3px 0}
+.ft__copy{text-align:center;color:var(--mute);font-size:11px}
+
+/* ===== 3カラム（トップ） ===== */
+.layout{display:grid;grid-template-columns:200px minmax(0,1fr) 200px;gap:30px;padding-top:24px;padding-bottom:16px}
+.layout--2{grid-template-columns:200px minmax(0,1fr)}
+.side h2,.ksec h2,.rside h2{font-size:15px;font-weight:400;padding-bottom:8px;margin-bottom:12px;border-bottom:1px dotted var(--dot)}
+.side ul{margin-bottom:28px}
+.side li a{display:flex;justify-content:space-between;align-items:center;height:35px;font-size:13px;border-bottom:1px solid var(--bg-gray)}
+.side li a::after{content:"";width:6px;height:6px;border-top:1px solid var(--mute);border-right:1px solid var(--mute);transform:rotate(45deg);margin-right:4px}
+.side a:hover,.kmore:hover{color:var(--link)}
+
+/* スライダー（自動送りなし・横スクロールのみ） */
+.slider{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-bottom:12px;scrollbar-width:none}
+.slider::-webkit-scrollbar{display:none}
+.slide{position:relative;flex:0 0 100%;scroll-snap-align:start;aspect-ratio:16/9;background:var(--bg-gray);overflow:hidden}
+.slide img{width:100%;height:100%;object-fit:cover}
+.slide__cap{position:absolute;left:0;right:0;bottom:0;background:rgba(255,255,255,.95);padding:10px 16px;font-size:16px;font-weight:300}
+.slide__cap span{background:linear-gradient(transparent 62%,var(--marker) 62%)}
+.thumbs{display:flex;gap:6px;margin-bottom:32px}
+.thumbs a{width:64px;aspect-ratio:16/9;background:var(--bg-gray);overflow:hidden}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+
+/* セクション */
+.ksec{margin-bottom:40px}
+.kmore{display:inline-block;border:1px solid var(--ink);border-radius:999px;padding:6px 22px;font-size:12px;margin-top:16px}
+.kcenter{text-align:center}
+.lead-s{font-size:12px;color:var(--sub);margin:-4px 0 14px}
+.kh1{font-size:20px;font-weight:400;margin-bottom:6px}
+
+/* 商品カード */
+.items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 20px}
+.item{position:relative;display:block}
+.item__img{position:relative;aspect-ratio:1/1;background:var(--bg-gray);overflow:hidden}
+.item__img img{width:100%;height:100%;object-fit:cover}
+.kbadge{position:absolute;left:0;bottom:0;background:#222;color:#fff;font-size:11px;padding:2px 8px;letter-spacing:.08em}
+.item__name{font-size:12px;color:var(--sub);font-weight:300;line-height:1.4;margin-top:8px}
+.item__price{font-size:12px;font-weight:700;margin-top:4px}
+.item__price small{font-weight:300;color:var(--sub);margin-left:4px}
+.item__tag{font-size:11px;color:var(--tag);margin-top:2px}
+.item__scene{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.item__scene span{font-size:10px;color:var(--sub);border:1px solid var(--line);padding:0 6px;border-radius:2px}
+
+/* 予約アイテム（届く日つき） */
+.pre{display:grid;grid-template-columns:120px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--bg-gray)}
+.pre img{aspect-ratio:1/1;object-fit:cover;background:var(--bg-gray);width:100%}
+.pre__eta{display:inline-block;font-size:11px;background:var(--bg-gray);padding:2px 8px;margin-top:6px}
+
+/* 場面から探す */
+.scenes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.scene{display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 8px;background:var(--bg-gray);font-size:13px;text-align:center}
+.scene:hover{color:var(--link)}
+.scene .ico{width:28px;height:28px}
+.scene small{font-size:10px;color:var(--sub)}
+
+/* 読みもの */
+.reads{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.read__img{aspect-ratio:16/10;background:var(--bg-gray);overflow:hidden}
+.read__img img{width:100%;height:100%;object-fit:cover}
+.read__cat{font-size:10px;color:var(--link);margin-top:8px;letter-spacing:.08em}
+.read__ttl{font-size:13px;font-weight:400;line-height:1.6;margin-top:2px}
+.read__date{font-size:11px;color:var(--mute);margin-top:4px}
+
+/* 編集部だより */
+.letter{display:grid;grid-template-columns:48px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid var(--bg-gray)}
+.letter__ava{width:48px;height:48px;border-radius:50%;background:var(--marker);display:grid;place-items:center;font-size:12px}
+.letter__from{font-size:11px;color:var(--sub)}
+.letter__ttl{font-size:14px;font-weight:400;margin:2px 0 4px}
+.letter__body{font-size:12px;color:var(--sub)}
+
+/* 右サイド */
+.rbox{background:var(--bg-gray);padding:16px;margin-bottom:20px;font-size:12px}
+.rbox h3{font-size:13px;font-weight:600;margin-bottom:6px}
+.rbox p{color:var(--sub);margin-bottom:10px}
+.rbtn{display:block;text-align:center;background:#fff;border:1px solid var(--ink);border-radius:999px;padding:7px;font-size:12px}
+.rbtn:hover{background:var(--ink);color:#fff}
+.guide li{display:flex;gap:8px;padding:6px 0;border-bottom:1px dotted var(--dot);font-size:12px}
+.guide b{font-weight:600;min-width:4.5em}
+
+/* 製品一覧の絞り込み */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.chips a{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:4px 14px}
+.chips a[aria-current="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.kempty{font-size:13px;color:var(--sub);padding:24px 0}
+.kfilter-note{font-size:12px;color:var(--sub);margin-bottom:12px}
+
+/* 記事一覧の検索結果 */
+.kfilter-hide{display:none!important}
+
+/* ===== 商品ページ（既存の構造のまま見た目だけ寄せる） ===== */
+.product-page .form-btn{background:var(--accent);border-color:var(--accent);color:#fff;border-radius:4px}
+.product-page .form-btn:disabled{background:#f3c48f;border-color:#f3c48f}
+.breadcrumb a{color:var(--link)}
+
+/* ===== タブレット ===== */
+@media (min-width:768px) and (max-width:1023px){
+  .layout{grid-template-columns:180px minmax(0,1fr)}
+  .rside{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+  .rside .rbox{margin-bottom:0}
+  .search input[type=search]{width:160px}
+}
+
+/* ===== スマホ ===== */
+@media (max-width:767px){
+  .pc-only{display:none!important}
+  .hd__top{height:56px;gap:12px}
+  .logo b{font-size:17px}
+  .logo small{display:none}
+  .hd__tools{margin-left:auto}
+  .hd__tools .sp-search{display:flex}
+  .iconnav{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);height:58px}
+  .iconnav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:10px}
+  .sp-searchbox:target,.sp-searchbox.is-open{display:block;padding:10px 16px;border-top:1px solid var(--line)}
+  .sp-searchbox .search{display:flex;flex-wrap:wrap;margin:0}
+  .sp-searchbox input[type=search]{width:100%}
+  .layout,.layout--2{display:block;padding-top:0}
+  .side{display:none}
+  .slider{margin:0 -16px 8px;gap:0}
+  .thumbs{display:none}
+  .items--row{display:flex;overflow-x:auto;gap:10px;margin-right:-16px;padding-right:16px;scrollbar-width:none}
+  .items--row .item{flex:0 0 38%}
+  .items{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 10px}
+  .scenes{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .reads{grid-template-columns:1fr}
+  .read{display:grid;grid-template-columns:112px 1fr;gap:12px}
+  .read__cat{margin-top:0}
+  .rside{margin-top:8px}
+  .ft__cols{grid-template-columns:1fr 1fr}
+}
