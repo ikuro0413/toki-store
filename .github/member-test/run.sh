@@ -97,7 +97,7 @@ check "退会後はログアウト状態" '[[ $(me) == *"\"loggedIn\":false"* ]]
 for i in 1 2 3; do post -d "email=spam@example.com&agree=1" "$SITE/api/member-login.php" > /dev/null; done
 check "4回目は送らない" '[[ $(post -d "email=spam@example.com&agree=1" "$SITE/api/member-login.php") == *error=busy ]]'
 
-check "PHPの警告・エラーなし" '! grep -qiE "warning|fatal|deprecated|notice" "$W/site.out"'
+check "PHPの警告・エラーなし" '! grep -v "JIT is incompatible" "$W/site.out" | grep -qiE "warning|fatal|deprecated|notice"'
 
 echo "--- store.log"; cat "$P/store.log"
 if [[ $fail == 0 ]]; then echo "ALL PASSED"; else echo "--- site.out"; cat "$W/site.out"; exit 1; fi
