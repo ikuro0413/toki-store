@@ -99,10 +99,25 @@
         if (!me) return;
         if (memberLabel && me.loggedIn) memberLabel.textContent = 'マイページ';
 
+        // 初回割引が使える会員には、価格を割引後で見せる（実際の値引きは決済画面で1注文につき1回）
+        if (me.loggedIn && me.firstCoupon) {
+          var off = me.couponAmount || 200;
+          document.querySelectorAll('[data-price]').forEach(function (el) {
+            var base = parseInt(el.getAttribute('data-price'), 10);
+            if (!(base > off)) return;
+            var yen = el.getAttribute('data-price-style') === 'yen';
+            var fmt = function (n) { return yen ? '¥' + n.toLocaleString('ja-JP') : n.toLocaleString('ja-JP') + '円'; };
+            el.innerHTML = '<s class="kprice-was">' + fmt(base) + '</s> <span class="kprice-now">' + fmt(base - off) + '</span>'
+              + '<small class="kprice-tag">初回価格</small>';
+            el.classList.add('is-member-price');
+          });
+        }
+
         if (couponNote) {
           var amount = (me.couponAmount || 200).toLocaleString('ja-JP');
           if (me.loggedIn && me.firstCoupon) {
-            couponNote.innerHTML = '<b>初回限定 ' + amount + '円引き</b>：決済画面で自動で差し引かれます。';
+            couponNote.innerHTML = '<b>初回限定 ' + amount + '円引き</b>：決済画面で自動で差し引かれます。'
+              + amount + '円引きはご注文1回につき1回です（2個ご注文の場合も' + amount + '円引き）。';
             couponNote.hidden = false;
           } else if (!me.loggedIn) {
             var back = encodeURIComponent(location.pathname);
