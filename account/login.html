@@ -3,9 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex">
-<title>お支払いは完了していません｜TOKI STORE</title>
+<title>会員登録・ログイン｜TOKI STORE</title>
+<meta name="description" content="TOKI STOREの会員登録・ログイン。メールアドレスだけで登録でき、初回のご注文が200円引きになります。">
+<link rel="canonical" href="https://store.detoxnews.jp/account/login.html">
 <link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JCG935P0HH"></script>
@@ -15,11 +18,10 @@
   gtag('js', new Date());
   gtag('config', 'G-JCG935P0HH');
 </script>
-<link rel="stylesheet" href="../assets/css/style.css?v=20261004a">
 <link rel="stylesheet" href="../assets/css/store.css?v=20261004c">
-
+<meta name="robots" content="noindex">
 </head>
-<body>
+<body class="k">
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
@@ -67,19 +69,26 @@
   </nav>
 </header>
 
-<div class="result">
-  <p class="result__ttl">お支払いは完了していません</p>
-
-  <div class="result__body">
-    <p>決済の途中で戻られました。料金は請求されていません。</p>
-    <p>買うかどうかを決める前に確かめたいことがあれば、<a href="mailto:info@detoxnews.jp">info@detoxnews.jp</a> へお問い合わせください。</p>
-  </div>
-
-  <p class="result__nav">
-    <a href="../products/off-box.html">商品ページへ戻る</a>
-    <a href="../index.html">製品一覧へ</a>
-  </p>
-</div>
+<main class="kwrap">
+  <section class="kacc">
+    <h1>会員登録・ログイン</h1>
+    <p class="kmsg" data-login-msg hidden></p>
+    <p>メールアドレスを入力すると、ログイン用のリンクをお送りします。リンクを開くと登録（またはログイン）が完了します。パスワードはありません。</p>
+    <ul class="kpoint">
+      <li>初回のご注文が <b>200円引き</b>（決済画面で自動で差し引かれます）</li>
+      <li>登録するのはメールアドレスだけです</li>
+      <li>マイページからいつでも退会できます</li>
+    </ul>
+    <form class="kform" method="post" action="../api/member-login.php" data-login-form>
+      <input type="hidden" name="next" value="">
+      <label for="email">メールアドレス</label>
+      <input type="email" id="email" name="email" required autocomplete="email" inputmode="email" maxlength="254">
+      <label class="kcheck"><input type="checkbox" name="agree" value="1" required> <span><a href="../privacy.html">プライバシーポリシー</a>に同意して登録・ログインします</span></label>
+      <button class="kbtn" type="submit">ログイン用のリンクを送る</button>
+    </form>
+    <p style="margin-top:20px">会員にならなくても、これまでどおりご購入いただけます。</p>
+  </section>
+</main>
 
 <footer class="ft">
   <div class="kwrap">
@@ -116,6 +125,7 @@
     <p class="ft__copy">© TOKI</p>
   </div>
 </footer>
+
 <script src="../assets/js/store.js?v=20261004c"></script>
 </body>
 </html>

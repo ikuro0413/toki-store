@@ -3,6 +3,6 @@ RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
 # 共通ライブラリを直接叩かせない
-<Files "_lib.php">
+<FilesMatch "^_(lib|member)\.php$">
   Require all denied
-</Files>
+</FilesMatch>

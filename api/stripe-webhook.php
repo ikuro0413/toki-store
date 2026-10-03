@@ -98,11 +98,26 @@ if ($type === 'checkout.session.completed') {
         'source_product_id'     => (string)($meta['source_product_id'] ?? ''),
         'ckb_order_id'          => '',
         'tracking_number'       => '',
+        'member_id'             => (string)($meta['member_id'] ?? ''),
+        'coupon'                => (string)($meta['coupon'] ?? ''),
+        'discount_jpy'          => (int)($s['total_details']['amount_discount'] ?? 0),
     ];
 
     // 控えを先に残してからStripeへ200を返し、遅いGAS送信は応答の後ろへ回す
     toki_save_order_local($order);
     toki_finish_response('ok');
+
+    // 初回割引を使った会員は使用済みにする。Stripeへ応答を返した後に行い、失敗しても注文の受付は止めない
+    // （使用済みの印が付かなくても、支払い済み注文があれば次回の割引は出ない）
+    if ($order['coupon'] !== '' && $order['email'] !== '') {
+        try {
+            require_once __DIR__ . '/_member.php';
+            toki_first_coupon_mark_used(strtolower($order['email']), $order['order_id']);
+        } catch (Throwable $e) {
+            toki_log('ERROR', 'coupon mark failed ' . $order['order_id'] . ' ' . $e->getMessage());
+        }
+    }
+
     toki_push_order_to_gas($order);
     exit;
 }

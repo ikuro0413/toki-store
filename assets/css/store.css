@@ -176,3 +176,24 @@ body.k{margin:0;font-family:"Yu Gothic Medium","游ゴシック Medium",YuGothic
   .rside{margin-top:8px}
   .ft__cols{grid-template-columns:1fr 1fr}
 }
+
+/* ===== 会員 ===== */
+.kcoupon{font-size:12px;line-height:1.7;background:#fff8e0;border-left:3px solid var(--marker);padding:8px 10px;margin:12px 0}
+.kcoupon a{color:var(--link);text-decoration:underline}
+.kacc{max-width:520px;margin:0 auto;padding:32px 0 8px}
+.kacc h1{font-size:20px;font-weight:400;margin-bottom:12px}
+.kacc p{font-size:13px;color:var(--sub);margin-bottom:12px}
+.kacc .kpoint{background:var(--bg-gray);padding:14px 16px;font-size:13px;color:var(--ink);margin:16px 0}
+.kacc .kpoint li{padding:2px 0}
+.kform label{display:block;font-size:12px;margin:14px 0 6px}
+.kform input[type=email]{width:100%;height:44px;border:1px solid var(--dot);border-radius:4px;padding:0 12px;font:inherit;font-size:15px}
+.kform .kcheck{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--sub)}
+.kform .kcheck a{color:var(--link);text-decoration:underline}
+.kbtn{display:block;width:100%;border:0;border-radius:4px;background:var(--ink);color:#fff;font:inherit;font-size:14px;padding:13px;margin-top:18px;cursor:pointer;letter-spacing:.08em}
+.kbtn--line{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+.kmsg{font-size:13px;background:#fff8e0;padding:10px 12px;margin-bottom:12px;color:var(--ink)}
+.kdl{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 20px}
+.kdl th,.kdl td{border-bottom:1px solid var(--line);padding:10px 6px;text-align:left}
+.kdl th{width:7em;font-weight:400;color:var(--sub)}
+.kdanger{margin-top:36px;border-top:1px dotted var(--dot);padding-top:16px}
+.kdanger summary{font-size:12px;color:var(--sub);cursor:pointer}

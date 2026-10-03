@@ -1,0 +1,22 @@
+# 会員登録と初回割引を、実際のPHPで端から端まで通す（Stripeとメールはテスト用の偽物に差し替える）
+name: Member flow test
+
+on:
+  push:
+    paths:
+      - 'api/**.php'
+      - '.github/member-test/**'
+      - '.github/workflows/member-test.yml'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: curl, mbstring
+      - name: run
+        run: bash .github/member-test/run.sh

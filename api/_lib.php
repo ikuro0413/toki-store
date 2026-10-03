@@ -122,7 +122,8 @@ function toki_next_order_id(): string {
 /** Stripe REST API を叩く。SDKもComposerも使わない */
 function toki_stripe(string $method, string $path, array $params = [], array $headers = []): array {
     $conf = toki_config();
-    $url = 'https://api.stripe.com/v1/' . ltrim($path, '/');
+    // TOKI_STRIPE_BASE はテスト用の差し替え先（本番では未設定）
+    $url = rtrim((string)(getenv('TOKI_STRIPE_BASE') ?: 'https://api.stripe.com/v1'), '/') . '/' . ltrim($path, '/');
 
     $ch = curl_init();
     $hdr = [

@@ -67,6 +67,66 @@
     if (empty) empty.hidden = shown !== 0;
   }
 
+  /* ── 会員 ───────────────────────────────────────────── */
+  var couponNote = document.querySelector('[data-coupon-note]');
+  var memberLabel = document.querySelector('[data-member-label]');
+  var mypage = document.querySelector('[data-mypage]');
+  var loginForm = document.querySelector('[data-login-form]');
+
+  // ログイン画面：戻り先と、エラー・お知らせの表示
+  if (loginForm) {
+    var next = params.get('next') || '';
+    if (/^\/products\/[a-z0-9-]+\.html$/.test(next)) loginForm.querySelector('[name=next]').value = next;
+    var msgs = {
+      email: 'メールアドレスの形式をご確認ください。',
+      agree: 'プライバシーポリシーへの同意が必要です。',
+      busy: '短い時間に何度も送信されたため、少し時間をおいてお試しください。',
+      mail: 'メールを送れませんでした。時間をおいてお試しいただくか、info@detoxnews.jp までご連絡ください。',
+      expired: 'リンクの有効期限が切れているか、すでに使われています。もう一度メールアドレスを入力してください。'
+    };
+    var key = params.get('error');
+    var box = document.querySelector('[data-login-msg]');
+    var text = key && msgs[key] ? msgs[key]
+      : params.get('bye') ? 'ログアウトしました。'
+      : params.get('deleted') ? '退会の手続きが完了しました。ご利用ありがとうございました。' : '';
+    if (box && text) { box.textContent = text; box.hidden = false; }
+  }
+
+  if (couponNote || memberLabel || mypage) {
+    fetch('/api/member-me.php', { credentials: 'same-origin', cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (me) {
+        if (!me) return;
+        if (memberLabel && me.loggedIn) memberLabel.textContent = 'マイページ';
+
+        if (couponNote) {
+          var amount = (me.couponAmount || 200).toLocaleString('ja-JP');
+          if (me.loggedIn && me.firstCoupon) {
+            couponNote.innerHTML = '<b>初回限定 ' + amount + '円引き</b>：決済画面で自動で差し引かれます。';
+            couponNote.hidden = false;
+          } else if (!me.loggedIn) {
+            var back = encodeURIComponent(location.pathname);
+            couponNote.innerHTML = '会員登録（メールアドレスだけ）で、初回のご注文が<b>' + amount + '円引き</b>になります。'
+              + ' <a href="/account/login.html?next=' + back + '">登録・ログイン</a>';
+            couponNote.hidden = false;
+          }
+        }
+
+        if (mypage) {
+          if (!me.loggedIn) { location.replace('/account/login.html'); return; }
+          var set = function (sel, v) { var el = mypage.querySelector(sel); if (el) el.textContent = v; };
+          set('[data-me-email]', me.email);
+          set('[data-me-since]', me.memberSince);
+          set('[data-me-coupon]', me.firstCoupon ? '使えます（次のご注文で' + (me.couponAmount || 200) + '円引き）'
+            : me.firstCouponUsed ? '使用済み' : 'ご購入の実績があるため対象外です');
+          mypage.hidden = false;
+          var w = document.querySelector('[data-welcome]');
+          if (w && params.get('welcome')) w.hidden = false;
+        }
+      })
+      .catch(function () {});
+  }
+
   /* 記事一覧 */
   var posts = document.querySelector('.post-list');
   if (posts && q) {

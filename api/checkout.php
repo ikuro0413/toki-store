@@ -139,15 +139,34 @@ if (!empty($p['image_url']) && strpos((string)$p['image_url'], 'https://') === 0
     $params['line_items'][0]['price_data']['product_data']['images'] = [(string)$p['image_url']];
 }
 
+// 会員の初回割引。ログイン中なら決済画面のメール欄を会員のアドレスで固定し、
+// 初回なら200円引きを自動で入れる。割引つきの画面は30分で失効させ、その間は二重に割引を出さない。
+// 割引の用意に失敗しても決済は止めず、通常価格で進める。
+require_once __DIR__ . '/_member.php';
+$member = toki_member_current();
+$couponApplied = false;
+if ($member) {
+    $params['customer_email'] = (string)$member['email'];
+    $params['metadata']['member_id'] = (string)($member['id'] ?? '');
+    if (toki_first_coupon_available($member) && toki_ensure_first_coupon()) {
+        $params['discounts'] = [['coupon' => TOKI_FIRST_COUPON_ID]];
+        $params['metadata']['coupon'] = TOKI_FIRST_COUPON_ID;
+        $params['expires_at'] = time() + 1800;
+        $couponApplied = true;
+    }
+}
+
 // 同じ注文番号で二重にSessionを作らない
 $session = toki_stripe('POST', 'checkout/sessions', $params, [
     'Idempotency-Key' => 'checkout-' . $orderId,
 ]);
 
+if ($couponApplied) toki_first_coupon_hold((string)$member['email'], (string)($session['id'] ?? ''));
+
 if (empty($session['url'])) toki_fail(502, 'session_no_url', '決済画面のURLが返らなかった');
 
 toki_log('ok', 'session作成 ' . $orderId . ' ' . $slug . ' x' . $qty
-    . ($isPreorder ? ' 予約' : '') . ' ' . ($session['id'] ?? ''));
+    . ($isPreorder ? ' 予約' : '') . ($couponApplied ? ' 初回割引' : '') . ' ' . ($session['id'] ?? ''));
 
 header('Location: ' . $session['url'], true, 303);
 exit;
