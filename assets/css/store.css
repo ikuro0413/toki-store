@@ -201,5 +201,5 @@ body.k{margin:0;font-family:"Yu Gothic Medium","游ゴシック Medium",YuGothic
 /* 会員の初回クーポン表示：1行目＝元値（取り消し線・灰色にしない）／2行目＝小さい札＋細字・赤の割引後価格 */
 .is-member-price .kprice-line{display:block;line-height:1.5}
 .kprice-was{color:var(--ink);font-weight:inherit}
-.kprice-now{color:#c62828;font-weight:300}
+.kprice-now{color:#e53935;font-weight:300;font-size:.85em}
 .is-member-price .kprice-tag{display:inline-block;font-size:9px;font-weight:400;line-height:1.5;color:var(--ink);background:#fff;border:1px solid var(--ink);padding:0 4px;border-radius:2px;letter-spacing:.02em;vertical-align:middle;margin:0 6px 0 0}
