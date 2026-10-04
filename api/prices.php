@@ -6,4 +6,5 @@ declare(strict_types=1);
 return [
     'off-box' => 3180,
     'lock-case-sos' => 2380,
+    'charge-lock-case' => 3480,
 ];
