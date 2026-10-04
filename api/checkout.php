@@ -140,7 +140,7 @@ if (!empty($p['image_url']) && strpos((string)$p['image_url'], 'https://') === 0
 }
 
 // 会員の初回割引。ログイン中なら決済画面のメール欄を会員のアドレスで固定し、
-// 初回なら200円引きを自動で入れる。割引つきの画面は30分で失効させ、その間は二重に割引を出さない。
+// 初回なら初回クーポンの値引き（_member.php の TOKI_FIRST_COUPON_AMOUNT）を自動で入れる。割引つきの画面は30分で失効させ、その間は二重に割引を出さない。
 // 割引の用意に失敗しても決済は止めず、通常価格で進める。
 require_once __DIR__ . '/_member.php';
 $member = toki_member_current();

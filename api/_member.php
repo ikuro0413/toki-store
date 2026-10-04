@@ -9,14 +9,14 @@
  * private/login-tokens.json ログイン用リンクのトークン（ハッシュだけを持つ・30分で失効・一回きり）
  * private/sessions/         ログイン状態（PHPセッション）
  *
- * 初回割引: 会員で、そのアドレスの支払い済み注文がなければ、決済画面に200円引きを自動で入れる。
+ * 初回割引: 会員で、そのアドレスの支払い済み注文がなければ、決済画面に400円引きを自動で入れる。
  */
 
 declare(strict_types=1);
 require_once __DIR__ . '/_lib.php';
 
-const TOKI_FIRST_COUPON_ID     = 'TOKI_FIRST200';
-const TOKI_FIRST_COUPON_AMOUNT = 200;
+const TOKI_FIRST_COUPON_ID     = 'TOKI_FIRST400';   // Stripeのクーポンは金額を変えられないので、金額を変えたらIDも変える
+const TOKI_FIRST_COUPON_AMOUNT = 400;
 const TOKI_LOGIN_TOKEN_TTL     = 1800;      // ログイン用リンクの有効期限（秒）
 const TOKI_SESSION_TTL         = 2592000;   // ログイン状態の保持（30日）
 const TOKI_COUPON_HOLD         = 1860;      // 割引つき決済画面の有効期限＋余裕（秒）
@@ -246,7 +246,7 @@ function toki_first_coupon_mark_used(string $email, string $orderId): void {
  * 既にある場合の作成エラーは成功として扱う。失敗しても決済は止めない（割引なしで進める）。
  */
 function toki_ensure_first_coupon(): bool {
-    $flag = toki_private_dir() . '/coupon-ready.json';
+    $flag = toki_private_dir() . '/coupon-ready-' . TOKI_FIRST_COUPON_ID . '.json';
     if (is_readable($flag)) return true;
 
     $conf = toki_config();
@@ -259,7 +259,7 @@ function toki_ensure_first_coupon(): bool {
             'amount_off' => TOKI_FIRST_COUPON_AMOUNT,
             'currency'   => 'jpy',
             'duration'   => 'once',
-            'name'       => '初回限定 200円引き',
+            'name'       => '初回限定 ' . TOKI_FIRST_COUPON_AMOUNT . '円引き',
         ]),
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_HTTPHEADER     => ['Authorization: Bearer ' . $conf['stripe_secret_key']],

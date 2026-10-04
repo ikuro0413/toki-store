@@ -54,7 +54,7 @@ check "同じリンクは2回使えない" '[[ $(curl -s -o /dev/null -w "%{redi
 # 6. 会員の初回購入 → 割引つき
 r=$(loc -X POST -d "sku=off-box&color=white" "$SITE/api/checkout.php")
 check "会員の購入は決済画面へ" '[[ $r == https://checkout.example/pay/2 ]]'
-check "初回は割引が入る" 'grep -q "TOKI_FIRST200" "$M/session-2.json" && grep -q "\"discounts\"" "$M/session-2.json"'
+check "初回は割引が入る" 'grep -q "TOKI_FIRST400" "$M/session-2.json" && grep -q "\"discounts\"" "$M/session-2.json"'
 check "メール欄を会員アドレスで固定" 'grep -q "\"customer_email\":\"buyer@example.com\"" "$M/session-2.json"'
 check "割引つき画面は期限つき" 'grep -q expires_at "$M/session-2.json"'
 check "クーポンは1回だけ作る" '[[ $(cat "$M/coupon-count") == 1 ]]'
@@ -71,7 +71,7 @@ sig=$(printf '%s' "$ts.$body" | openssl dgst -sha256 -hmac whsec_testsecret | se
 code=$(curl -s -o /dev/null -w '%{http_code}' -H "Stripe-Signature: t=$ts,v1=$sig" -H 'Content-Type: application/json' -d "$body" "$SITE/api/stripe-webhook.php")
 sleep 1
 check "Webhookは200" '[[ $code == 200 ]]'
-check "注文の控えに割引が残る" 'grep -q "\"discount_jpy\":200" "$P/orders.jsonl" && grep -q "\"price_jpy\":2980" "$P/orders.jsonl"'
+check "注文の控えに割引が残る" 'grep -q "\"discount_jpy\":400" "$P/orders.jsonl" && grep -q "\"price_jpy\":2780" "$P/orders.jsonl"'
 check "会員は使用済み" 'grep -q first_coupon_used_at "$P/members.json"'
 check "me は使用済み" '[[ $(me) == *"\"firstCouponUsed\":true"* ]]'
 

@@ -21,7 +21,7 @@ if ($method === 'POST' && $path === '/v1/checkout/sessions') {
 if ($method === 'GET' && preg_match('#^/v1/checkout/sessions/cs_test_(\d+)$#', $path, $m)) {
     $n = (int)$m[1];
     $p = json_decode((string)file_get_contents("$dir/session-$n.json"), true);
-    $disc = isset($p['discounts']) ? 200 : 0;
+    $disc = isset($p['discounts']) ? 400 : 0;
     echo json_encode([
         'id' => "cs_test_$n", 'payment_status' => 'paid',
         'amount_total' => 3180 - $disc,
