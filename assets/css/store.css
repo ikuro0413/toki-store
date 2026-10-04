@@ -198,7 +198,7 @@ body.k{margin:0;font-family:"Yu Gothic Medium","游ゴシック Medium",YuGothic
 .kdanger{margin-top:36px;border-top:1px dotted var(--dot);padding-top:16px}
 .kdanger summary{font-size:12px;color:var(--sub);cursor:pointer}
 
-/* 会員の初回価格 */
-.kprice-was{color:var(--mute);font-weight:300;margin-right:2px}
-.kprice-now{color:#c0392b}
-.kprice-tag{display:inline-block;margin-left:6px;font-size:10px;font-weight:600;color:#fff;background:#c0392b;padding:0 6px;border-radius:2px;letter-spacing:.06em;vertical-align:middle}
+/* 会員の初回クーポン表示（赤は使わない。黒字・白地・細い黒枠） */
+.kprice-was{color:var(--mute);font-weight:300;margin-right:4px}
+.kprice-now{color:var(--ink)}
+.is-member-price .kprice-tag{display:inline-block;font-size:11px;font-weight:600;line-height:1.6;color:var(--ink);background:#fff;border:1px solid var(--ink);padding:0 6px;border-radius:2px;letter-spacing:.04em;vertical-align:middle;margin:0 4px 0 0}
