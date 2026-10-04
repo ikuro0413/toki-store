@@ -101,7 +101,7 @@
 
         // 初回割引が使える会員には、価格を割引後で見せる（実際の値引きは決済画面で1注文につき1回）
         if (me.loggedIn && me.firstCoupon) {
-          var off = me.couponAmount || 400;
+          var off = me.couponAmount || 200;
           document.querySelectorAll('[data-price]').forEach(function (el) {
             var base = parseInt(el.getAttribute('data-price'), 10);
             if (!(base > off)) return;
@@ -114,7 +114,7 @@
         }
 
         if (couponNote) {
-          var amount = (me.couponAmount || 400).toLocaleString('ja-JP');
+          var amount = (me.couponAmount || 200).toLocaleString('ja-JP');
           if (me.loggedIn && me.firstCoupon) {
             couponNote.innerHTML = '<b>初回限定 ' + amount + '円引き</b>：決済画面で自動で差し引かれます。'
               + amount + '円引きはご注文1回につき1回です（2個ご注文の場合も' + amount + '円引き）。';
@@ -132,7 +132,7 @@
           var set = function (sel, v) { var el = mypage.querySelector(sel); if (el) el.textContent = v; };
           set('[data-me-email]', me.email);
           set('[data-me-since]', me.memberSince);
-          set('[data-me-coupon]', me.firstCoupon ? '使えます（次のご注文で' + (me.couponAmount || 400) + '円引き）'
+          set('[data-me-coupon]', me.firstCoupon ? '使えます（次のご注文で' + (me.couponAmount || 200) + '円引き）'
             : me.firstCouponUsed ? '使用済み' : 'ご購入の実績があるため対象外です');
           mypage.hidden = false;
           var w = document.querySelector('[data-welcome]');
