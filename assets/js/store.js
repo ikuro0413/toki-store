@@ -107,7 +107,8 @@
             if (!(base > off)) return;
             var yen = el.getAttribute('data-price-style') === 'yen';
             var fmt = function (n) { return yen ? '¥' + n.toLocaleString('ja-JP') : n.toLocaleString('ja-JP') + '円'; };
-            el.innerHTML = '<s class="kprice-was">' + fmt(base) + '</s> <span class="kprice-tag">初回クーポンにて</span> <span class="kprice-now">' + fmt(base - off) + '</span>';
+            el.innerHTML = '<span class="kprice-line"><s class="kprice-was">' + fmt(base) + '</s></span>'
+              + '<span class="kprice-line"><span class="kprice-tag">初回クーポンにて</span><span class="kprice-now">' + fmt(base - off) + '</span></span>';
             el.classList.add('is-member-price');
           });
         }
