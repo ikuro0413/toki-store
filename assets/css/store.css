@@ -157,7 +157,7 @@ body.k{margin:0;font-family:"Yu Gothic Medium","游ゴシック Medium",YuGothic
   .logo small{display:none}
   .hd__tools{margin-left:auto}
   .hd__tools .sp-search{display:flex}
-  .iconnav{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);height:58px}
+  .iconnav{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);height:58px}
   .iconnav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:10px}
   .sp-searchbox:target,.sp-searchbox.is-open{display:block;padding:10px 16px;border-top:1px solid var(--line)}
   .sp-searchbox .search{display:flex;flex-wrap:wrap;margin:0}
