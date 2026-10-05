@@ -18,7 +18,7 @@
   gtag('js', new Date());
   gtag('config', 'G-JCG935P0HH');
 </script>
-<link rel="stylesheet" href="assets/css/store.css?v=20261005a">
+<link rel="stylesheet" href="assets/css/store.css?v=20261005b">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="TOKI STORE｜デジタルとの距離を、見直す道具">
@@ -142,6 +142,31 @@
     </section>
 <!-- /catalog:products -->
 
+    <section class="ksec" id="videos">
+      <h2>動画で見る</h2>
+      <p class="lead-s">TOKIのInstagram（<a href="https://www.instagram.com/offline_lab_/" target="_blank" rel="noopener">@offline_lab_</a>）から。スマホと距離を置く暮らしを、短い動画で紹介しています。動画に映っている道具は、TOKI STOREの商品と異なる場合があります。</p>
+      <div class="kvideos" data-ig-embed>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DcGQs-dCq3C/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DcGQs-dCq3C/" target="_blank" rel="noopener">スマホロックボックス、おすすめです（Instagram）</a></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DcTE1rjiDoi/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DcTE1rjiDoi/" target="_blank" rel="noopener">夜の自分時間は意外とある（Instagram）</a></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DcYLUvdCJjH/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DcYLUvdCJjH/" target="_blank" rel="noopener">ボードゲームの夜（Instagram）</a></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DeDovMcC80K/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DeDovMcC80K/" target="_blank" rel="noopener">スマホとのちょうどいい距離（Instagram）</a></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DdGZIqLBtla/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DdGZIqLBtla/" target="_blank" rel="noopener">見たい動画は見る、ちょうどいい距離（Instagram）</a></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Dc7gTYfC2Z1/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/reel/Dc7gTYfC2Z1/" target="_blank" rel="noopener">休日は、スマホを休ませよう（Instagram）</a></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Ddfd28_i0j2/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/reel/Ddfd28_i0j2/" target="_blank" rel="noopener">スマホにも休日を（Instagram）</a></blockquote>
+      </div>
+      <p class="kcenter"><a class="kmore" href="https://www.instagram.com/offline_lab_/" target="_blank" rel="noopener">Instagramでもっと見る</a></p>
+    </section>
+    <script>
+    /* Instagramの埋め込みは重いので、この欄が画面に近づいてから読み込む */
+    (function(){
+      var box=document.querySelector('[data-ig-embed]'); if(!box) return;
+      var load=function(){ if(window.__igLoaded) return; window.__igLoaded=true; var s=document.createElement('script'); s.async=true; s.src='https://www.instagram.com/embed.js'; document.body.appendChild(s); };
+      if(!('IntersectionObserver' in window)) return load();
+      var io=new IntersectionObserver(function(es){ if(es.some(function(e){return e.isIntersecting;})){ io.disconnect(); load(); } },{rootMargin:'400px'});
+      io.observe(box);
+    })();
+    </script>
+
     <section class="ksec" id="scenes">
       <h2>場面から探す</h2>
       <div class="scenes">
@@ -255,6 +280,6 @@
 </footer>
 
 
-<script src="assets/js/store.js?v=20261005a"></script>
+<script src="assets/js/store.js?v=20261005b"></script>
 </body>
 </html>

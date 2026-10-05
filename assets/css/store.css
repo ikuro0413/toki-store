@@ -203,3 +203,7 @@ body.k{margin:0;font-family:"Yu Gothic Medium","游ゴシック Medium",YuGothic
 .kprice-was{color:var(--ink);font-weight:inherit}
 .kprice-now{color:#e53935;font-weight:300;font-size:.85em}
 .is-member-price .kprice-tag{display:inline-block;font-size:9px;font-weight:400;line-height:1.5;color:var(--ink);background:#fff;border:1px solid var(--ink);padding:0 4px;border-radius:2px;letter-spacing:.02em;vertical-align:middle;margin:0 6px 0 0}
+/* 動画で見る（Instagram埋め込み）: 横スクロールの1列。埋め込みは自前で幅を決めるので !important で326pxに固定する */
+.kvideos{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 10px;-webkit-overflow-scrolling:touch}
+.kvideos>.instagram-media,.kvideos>iframe{flex:0 0 326px!important;width:326px!important;min-width:326px!important;max-width:326px!important;margin:0!important;scroll-snap-align:start}
+.kvideos>blockquote.instagram-media{border:1px solid var(--line);border-radius:8px;padding:16px;font-size:13px;background:#fff}
