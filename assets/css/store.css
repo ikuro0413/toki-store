@@ -213,3 +213,4 @@ body.k{margin:0;font-family:"Yu Gothic Medium","游ゴシック Medium",YuGothic
 .kvid__t{display:block;margin-top:6px;font-size:12px;line-height:1.5}
 .kvid:hover .kvid__img img{opacity:.85}
 @media (max-width:767px){.kvid{flex-basis:128px}}
+.letter__date{margin-left:10px;font-weight:normal;color:var(--mute);font-size:.92em}
