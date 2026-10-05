@@ -203,7 +203,13 @@ body.k{margin:0;font-family:"Yu Gothic Medium","游ゴシック Medium",YuGothic
 .kprice-was{color:var(--ink);font-weight:inherit}
 .kprice-now{color:#e53935;font-weight:300;font-size:.85em}
 .is-member-price .kprice-tag{display:inline-block;font-size:9px;font-weight:400;line-height:1.5;color:var(--ink);background:#fff;border:1px solid var(--ink);padding:0 4px;border-radius:2px;letter-spacing:.02em;vertical-align:middle;margin:0 6px 0 0}
-/* 動画で見る（Instagram埋め込み）: 横スクロールの1列。埋め込みは自前で幅を決めるので !important で326pxに固定する */
-.kvideos{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 10px;-webkit-overflow-scrolling:touch}
-.kvideos>.instagram-media,.kvideos>iframe{flex:0 0 326px!important;width:326px!important;min-width:326px!important;max-width:326px!important;margin:0!important;scroll-snap-align:start}
-.kvideos>blockquote.instagram-media{border:1px solid var(--line);border-radius:8px;padding:16px;font-size:13px;background:#fff}
+/* 動画で見る: Instagramリールの表紙を9:16のカードで横に並べる。押すとInstagramで再生 */
+.kvideos{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 2px 10px;-webkit-overflow-scrolling:touch}
+.kvid{flex:0 0 150px;scroll-snap-align:start;color:inherit;text-decoration:none}
+.kvid__img{position:relative;display:block;aspect-ratio:9/16;border-radius:8px;overflow:hidden;background:#eee}
+.kvid__img img{width:100%;height:100%;object-fit:cover;display:block}
+.kvid__play{position:absolute;left:50%;top:50%;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;background:rgba(0,0,0,.45)}
+.kvid__play::after{content:'';position:absolute;left:16px;top:12px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #fff}
+.kvid__t{display:block;margin-top:6px;font-size:12px;line-height:1.5}
+.kvid:hover .kvid__img img{opacity:.85}
+@media (max-width:767px){.kvid{flex-basis:128px}}
